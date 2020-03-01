@@ -1,0 +1,57 @@
+$red: #EE3524
+$red-hover: #c5281c
+$green: #62883d
+$green-simple: #e9f4df
+$black: #212121
+$grey: #999
+    
+body
+    font-family: ProximaNova,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
+    margin: 0
+    padding: 0
+    color: $black
+.container
+    max-width: 1280px
+    margin: 0 auto
+
+//Стили шапки сайта
+.header-wrapper
+    padding: 15px 0 5px
+    .container
+        display: flex
+        flex-direction: row
+        align-items: center
+    .logo-header, .number-header, .bascket-header
+        width: 33.33%
+
+    .logo-header
+        img
+            height: 54px
+    .number-header
+        text-align: center
+        a
+            color: $black
+            text-decoration: none
+            font-size: 1.4em
+        p
+            padding: 0
+            margin: 0
+            font-weight: 500
+            font-size: 1em
+            color: $grey
+    .bascket-header
+        text-align: right
+        .bascket-block
+            display: inline-block
+            color: #ffffff
+            text-decoration: none
+            padding: 10px 16px
+            background-color: $red
+            border-radius: 10px
+            transition: all 0.3s
+            &:hover
+                background-color: $red-hover
+        span
+            margin-left: 7px
+            padding-left: 12px 
+            border-left: 1px solid #fff 
