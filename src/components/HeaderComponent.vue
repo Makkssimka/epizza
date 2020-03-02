@@ -2,25 +2,17 @@
     <header class="header-wrapper">
         <div class="container">
             <div class="logo-header">
-                <a href="/" title="ЁPizza">
+                <router-link to="/" title="ЁPizza">
                     <img src="/images/epizza-logo.svg" alt="Ёpizza">
-                </a>
+                </router-link>
+            </div>
+            <div class="text-header">
+                <p>Доставка пиццы в <span>Волгораде</span></p>
             </div>
             <div class="number-header">
                 <a href="tel:880045657890">8 800 4565-78-90</a>
                 <p>Звонок бесплатный</p>
             </div>
-            <div class="bascket-header">
-                <a href="#" class="bascket-block">
-                    Корзина <span class="number">0</span>
-                </a>
-            </div>
         </div>
     </header>
 </template>
-
-<script>
-export default {
-    
-}
-</script>
