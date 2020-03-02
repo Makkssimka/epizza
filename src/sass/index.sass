@@ -1,7 +1,7 @@
 $red: #EE3524
 $red-hover: #c5281c
 $green: #62883d
-$green-simple: #e9f4df
+$grey-simple: #878787
 $black: #212121
 $grey: #999
     
@@ -14,6 +14,18 @@ body
     max-width: 1280px
     margin: 0 auto
 
+.btn 
+    display: inline-block
+    padding: 8px 24px
+    text-decoration: none
+    border-radius: 10px
+.btn-product
+    color: $red
+    border: 1px solid $red
+    transition: all 0.3s
+    &:hover
+        color: #fff
+        background-color: $red
 //Стили шапки сайта
 .header-wrapper
     padding: 15px 0 5px
@@ -28,10 +40,11 @@ body
         img
             height: 50px
     .text-header
+        font-family: 'Nunito'
         text-align: center
         font-size: 1.2em
         text-transform: uppercase
-        font-weight: 500
+        font-weight: 700
         p
             padding: 0
             margin: 0
@@ -102,7 +115,7 @@ body
             padding-left: 12px 
             border-left: 1px solid #fff 
 .list-menu-visible
-    border-bottom: 1px solid $green-simple
+    border-bottom: 1px solid #DCDCDC
     .list-menu
         transform: translateX(0)
 
@@ -125,3 +138,53 @@ body
         &:hover
             .owl-theme .owl-dots
                 opacity: 1
+
+//Стили компонента пицца
+.product-wrapper
+    margin-top: 25px
+    display: flex
+    flex-wrap: wrap
+    .product-item
+        padding: 35px 15px
+        width: calc(25% - 30px)
+    .images-product
+        display: block
+        position: relative
+        background-image: url(/images/pizza-simple.svg)
+        background-size: cover
+        background-repeat: no-repeat
+        transition: transform 0.3s
+        &:before
+            content: ""
+            display: block
+            padding-top: 100%
+        &:hover
+            transform: scale(1.1)
+        img
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: auto 
+    .desc-product
+        position: relative
+        z-index: 10  
+    .title-product
+        font-family: 'Nunito'
+        margin: 0 0 7px
+        font-size: 1.35em
+        font-weight: 600
+        letter-spacing: -1px;
+    .structure-product
+        color: $grey-simple
+        margin: 7px 0 25px
+    .price-product-wrapper
+        display: flex
+        align-items: center
+        justify-content: space-between
+        .price-broduct
+            font-family: 'Nunito'
+            font-size: 1.35em
+            font-weight: 600
+
+
