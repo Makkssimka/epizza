@@ -5,8 +5,8 @@
                 <li><router-link class="menu-image" to="/">
                     <img src="/images/epizza-logo-simple.svg" alt="">
                 </router-link></li>
-                <li><a href="/">Пицца</a></li>
-                <li><a href="/">Соусы</a></li>
+                <li><a href="#pizza" @click.prevent="scrollAnkhor">Пицца</a></li>
+                <li><a href="#souse" @click.prevent="scrollAnkhor">Соусы</a></li>
                 <li><a href="/">Закуски</a></li>
                 <li><a href="/">Салаты</a></li>
                 <li><a href="/">Напитки</a></li>
@@ -37,6 +37,13 @@ export default {
     computed: {
         basketLength: function(){
             return this.basket.length;
+        }
+    },
+    methods: {
+        scrollAnkhor: function(e){
+            let idElem = e.target.hash;
+            let elem = document.querySelector(idElem);
+            console.log(elem);
         }
     },
     props: {

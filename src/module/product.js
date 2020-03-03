@@ -161,4 +161,118 @@ const souseArray = [
     }
 ];
 
-export {pizzaArray, souseArray};
+const zakuskiArray = [
+    {
+        id: 1,
+        title: "Крылья барбекю",
+        price: 350,
+        structure: ['Запеченные куриные крылья в маринаде из соуса барбекю'],
+        image: '/images/product/krilija-barbeku.jpg'
+    },
+    {
+        id: 2,
+        title: "Крылья барбекю",
+        price: 350,
+        structure: ['Запеченные куриные крылья в маринаде из соуса барбекю'],
+        image: '/images/product/krilija-barbeku.jpg'
+    },
+    {
+        id: 3,
+        title: "Крылья барбекю",
+        price: 350,
+        structure: ['Запеченные куриные крылья в маринаде из соуса барбекю'],
+        image: '/images/product/krilija-barbeku.jpg'
+    },
+    {
+        id: 4,
+        title: "Крылья барбекю",
+        price: 350,
+        structure: ['Запеченные куриные крылья в маринаде из соуса барбекю'],
+        image: '/images/product/krilija-barbeku.jpg'
+    },
+    {
+        id: 5,
+        title: "Крылья барбекю",
+        price: 350,
+        structure: ['Запеченные куриные крылья в маринаде из соуса барбекю'],
+        image: '/images/product/krilija-barbeku.jpg'
+    },
+    {
+        id: 6,
+        title: "Крылья барбекю",
+        price: 350,
+        structure: ['Запеченные куриные крылья в маринаде из соуса барбекю'],
+        image: '/images/product/krilija-barbeku.jpg'
+    }
+];
+
+const saultArray = [
+    {
+        id: 1,
+        title: "Салат Греческий",
+        price: 189,
+        structure: ['Салат айсберг', 'томаты черри', 'маслины', 'сладкий перец', 'свежий огурец', 'кубики брынзы', 'итальянские травы', 'оливковое масло'],
+        image: '/images/product/sault-greth.jpg'
+    },
+    {
+        id: 2,
+        title: "Салат Греческий",
+        price: 189,
+        structure: ['Салат айсберг', 'томаты черри', 'маслины', 'сладкий перец', 'свежий огурец', 'кубики брынзы', 'итальянские травы', 'оливковое масло'],
+        image: '/images/product/sault-greth.jpg'
+    },
+    {
+        id: 3,
+        title: "Салат Греческий",
+        price: 189,
+        structure: ['Салат айсберг', 'томаты черри', 'маслины', 'сладкий перец', 'свежий огурец', 'кубики брынзы', 'итальянские травы', 'оливковое масло'],
+        image: '/images/product/sault-greth.jpg'
+    },
+    {
+        id: 4,
+        title: "Салат Греческий",
+        price: 189,
+        structure: ['Салат айсберг', 'томаты черри', 'маслины', 'сладкий перец', 'свежий огурец', 'кубики брынзы', 'итальянские травы', 'оливковое масло'],
+        image: '/images/product/sault-greth.jpg'
+    },
+    {
+        id: 5,
+        title: "Салат Греческий",
+        price: 189,
+        structure: ['Салат айсберг', 'томаты черри', 'маслины', 'сладкий перец', 'свежий огурец', 'кубики брынзы', 'итальянские травы', 'оливковое масло'],
+        image: '/images/product/sault-greth.jpg'
+    }
+];
+
+const drinkArray = [
+    {
+        id: 1,
+        title: "Coca-cola Zero Cherry 0.5 л",
+        price: 95,
+        structure: [],
+        image: '/images/product/drink-cola-cherry.jpg'
+    },
+    {
+        id: 2,
+        title: "Coca-cola Zero Cherry 0.5 л",
+        price: 95,
+        structure: [],
+        image: '/images/product/drink-cola-cherry.jpg'
+    },
+    {
+        id: 3,
+        title: "Coca-cola Zero Cherry 0.5 л",
+        price: 95,
+        structure: [],
+        image: '/images/product/drink-cola-cherry.jpg'
+    },
+    {
+        id: 4,
+        title: "Coca-cola Zero Cherry 0.5 л",
+        price: 95,
+        structure: [],
+        image: '/images/product/drink-cola-cherry.jpg'
+    }
+];
+
+export {pizzaArray, souseArray, zakuskiArray, saultArray, drinkArray};

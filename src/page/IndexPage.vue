@@ -5,7 +5,7 @@
             <img src="/images/slide2.jpeg" alt="">
             <img src="/images/slide3.jpeg" alt="">
         </carousel>
-        <div class="container">
+        <div class="container" id="pizza">
             <div class="product-wrapper">
                 <pizza-block 
                     v-for="item in pizza" 
@@ -14,11 +14,41 @@
                 </pizza-block>
             </div>
         </div>
-        <div class="container">
+        <div class="container" id="souse">
             <div class="head-product">Соусы</div>
             <div class="product-wrapper">
                 <product-block 
                     v-for="item in souse" 
+                    :key="item.id"
+                    :product="item">
+                </product-block>
+            </div>
+        </div>
+        <div class="container">
+            <div class="head-product">Закуски</div>
+            <div class="product-wrapper">
+                <product-block 
+                    v-for="item in zakuski" 
+                    :key="item.id"
+                    :product="item">
+                </product-block>
+            </div>
+        </div>
+        <div class="container">
+            <div class="head-product">Салаты</div>
+            <div class="product-wrapper">
+                <product-block 
+                    v-for="item in sault" 
+                    :key="item.id"
+                    :product="item">
+                </product-block>
+            </div>
+        </div>
+        <div class="container">
+            <div class="head-product">Напитки</div>
+            <div class="product-wrapper">
+                <product-block 
+                    v-for="item in drink" 
                     :key="item.id"
                     :product="item">
                 </product-block>
@@ -31,17 +61,17 @@
 import carousel from "vue-owl-carousel";
 import pizzaBlock from "../components/PizzaComponent";
 import productBlock from "../components/ProductComponent";
-import {pizzaArray, souseArray} from "../module/product";
+import {pizzaArray, souseArray, zakuskiArray, saultArray, drinkArray} from "../module/product";
 
 export default {
     data: function(){
         return {
             pizza: pizzaArray,
-            souse: souseArray
+            souse: souseArray,
+            zakuski: zakuskiArray,
+            sault: saultArray,
+            drink: drinkArray
         }
-    },
-    mounted: function(){
-        console.log(this.souse);
     },
     components: {
         carousel,
