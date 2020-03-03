@@ -137,4 +137,28 @@ const pizzaArray = [
     }
 ];
 
-export {pizzaArray};
+const souseArray = [
+    {
+        id: 1,
+        title: "Соус сырный Heinz",
+        price: 20,
+        structure: ['25 мл'],
+        image: '/images/product/sirnii-sous.jpg'
+    },
+    {
+        id: 2,
+        title: "Соус сырный Heinz",
+        price: 20,
+        structure: ['25 мл'],
+        image: '/images/product/sirnii-sous.jpg'
+    },
+    {
+        id: 3,
+        title: "Соус сырный Heinz",
+        price: 20,
+        structure: ['25 мл'],
+        image: '/images/product/sirnii-sous.jpg'
+    }
+];
+
+export {pizzaArray, souseArray};
