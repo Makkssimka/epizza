@@ -9,7 +9,7 @@
         </div>
         <div class="price-product-wrapper">
             <div class="price-broduct">{{ product.price }} &#8381;</div>
-            <a href="#" class="btn btn-product">В корзину</a>
+            <a href="#" class="btn btn-product" @click.prevent="upBasket">В корзину</a>
         </div>
     </div>
 </template>
@@ -18,6 +18,10 @@
 export default {
     props: {
         product: Object
+    },
+    methods: {
+        upBasket: function(){
+        }
     }
 }
 </script>

@@ -35,7 +35,6 @@ body
         align-items: center
     .logo-header, .number-header, .text-header
         width: 33.33%
-
     .logo-header
         img
             height: 50px
@@ -191,4 +190,78 @@ body
             font-size: 1.35em
             font-weight: 600
 
+//Стили для блока подвал
+.footer-wrapper
+    margin-top: 15px
+    .container
+        display: flex
+        justify-content: space-between
+    .social-line
+        background-color: $red
+        padding: 8px 10px
+        .text-social
+            display: flex
+            align-items: center
+            font-family: 'Nunito'
+            font-size: 1.2em
+            color: #fff
+            img
+                height: 45px
+                width: auto
+                margin-right: 15px
+    .list-social
+        list-style: none
+        padding: 0
+        margin: 0
+        display: flex
+        img
+            height: 100%
+            width: auto
+        a
+            display: inline-block
+            text-decoration: none
+            height: 26px
+            padding: 8px
+            border-radius: 10px
+            background-color: rgba(255,255,255,0.6)
+            margin-left: 8px
+            transition: all 0.3s
+            &:hover
+                background-color: rgba(255,255,255,1)
+    .footer-menu
+        padding: 25px 10px
+        background-color: #373535
+    .footer-list-menu
+        display: flex
+        ul
+            list-style: none
+            padding: 0
+            margin: 0
+            .head-footer-menu
+                font-size: 1.1em
+                color: #ffffff
+            a
+                display: inline-block
+                font-size: 1em
+                color: #ffffff
+                opacity: 0.6
+                text-decoration: none
+                margin: 3px 0
+                transition: opacity 0.3s
+                &:hover
+                    opacity: 1
+            &:nth-child(2)
+                margin-left: 50px
+    .footer-list-number
+        a
+            color: #fff
+            text-decoration: none
+            font-size: 1.6em
+        p
+            padding: 0
+            margin: 0
+            color: #ffffff
+            opacity: 0.6
+            text-align: center
 
+                

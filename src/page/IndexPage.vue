@@ -24,7 +24,7 @@
                 </product-block>
             </div>
         </div>
-        <div class="container">
+        <div class="container" id="zakuski">
             <div class="head-product">Закуски</div>
             <div class="product-wrapper">
                 <product-block 
@@ -34,7 +34,7 @@
                 </product-block>
             </div>
         </div>
-        <div class="container">
+        <div class="container" id="sault">
             <div class="head-product">Салаты</div>
             <div class="product-wrapper">
                 <product-block 
@@ -44,7 +44,7 @@
                 </product-block>
             </div>
         </div>
-        <div class="container">
+        <div class="container" id="drink">
             <div class="head-product">Напитки</div>
             <div class="product-wrapper">
                 <product-block 

@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <header-component></header-component>
-    <menu-component :basket="basket"></menu-component>
+    <menu-component></menu-component>
     <router-view></router-view>
+    <footer-component></footer-component>
   </div>
 </template>
 
@@ -10,16 +11,13 @@
 
 import Header from "./components/HeaderComponent"
 import Menu from "./components/MenuComponent"
+import Footer from "./components/FooterComponent"
 
 export default {
-  data: function(){
-    return{
-      basket: []
-    }
-  },
   components: {
     "header-component": Header,
-    "menu-component": Menu
+    "menu-component": Menu,
+    "footer-component": Footer
   }
   
 }
