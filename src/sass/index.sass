@@ -72,7 +72,6 @@ body
     z-index: 100
     transition: border 0.3s
     .container
-        overflow: hidden
         display: flex
         align-items: center
         justify-content: space-between
@@ -82,8 +81,10 @@ body
         margin: 0
         display: flex
         align-items: center
-        transform: translateX(-45px)
-        transition: transform 0.5s
+        overflow: hidden
+        li
+            transform: translateX(-45px)
+            transition: transform 0.5s
         a.menu-image
             margin-left: 0
         a
@@ -99,6 +100,7 @@ body
                 color: $red
     .bascket-menu
         text-align: right
+        position: relative
         .bascket-block
             display: inline-block
             color: #ffffff
@@ -113,9 +115,30 @@ body
             margin-left: 7px
             padding-left: 12px 
             border-left: 1px solid #fff 
+        .basket-message
+            font-size: 0.8em
+            position: absolute
+            min-width: 200px
+            padding: 15px 25px
+            border-radius: 10px
+            right: 0
+            top: calc(100% + 15px)
+            background-color: rgba(34,34,34,0.9)
+            text-align: left
+            color: #fff
+            opacity: 0
+            visibility: hidden
+            transition: all 0.3s
+            p
+                margin: 0
+                padding: 0
+                line-height: 1.4
+        .visible-basket
+            opacity: 1
+            visibility: visible
 .list-menu-visible
     border-bottom: 1px solid #DCDCDC
-    .list-menu
+    .list-menu li
         transform: translateX(0)
 
 //Главная страница

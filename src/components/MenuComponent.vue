@@ -12,19 +12,19 @@
                 <li><a href="#drink" @click.prevent="scrollAnkhor">Напитки</a></li>
                 <li><a href="/">Акции</a></li>
             </ul>
-            <div class="bascket-menu">
-                <a href="#" class="bascket-block">
-                    Корзина <span class="number">{{ basketLength }}</span>
-                </a>
-            </div>
+            <basket></basket>
         </div>
     </nav>
 </template>
 
 <script>
 import scrollTo from "scroll-to-element";
+import Basket from "../components/BasketComponent";
 
 export default {
+    components: {
+        basket: Basket
+    },
     data: function(){
         return {
             isVisible: false
@@ -35,11 +35,6 @@ export default {
             let scroll = window.pageYOffset || document.documentElement.scrollTop;
             this.isVisible = (scroll > 75)?true:false;
         };
-    },
-    computed: {
-        basketLength: function(){
-            return this.$store.getters.BASKET_LEN;
-        }
     },
     methods: {
         scrollAnkhor: function(e){
