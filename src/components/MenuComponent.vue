@@ -38,8 +38,7 @@ export default {
     },
     computed: {
         basketLength: function(){
-            console.log(this);
-            return this.ro;
+            return this.$store.getters.BASKET_LEN;
         }
     },
     methods: {

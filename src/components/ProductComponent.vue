@@ -9,7 +9,7 @@
         </div>
         <div class="price-product-wrapper">
             <div class="price-broduct">{{ product.price }} &#8381;</div>
-            <a href="#" class="btn btn-product" @click.prevent="upBasket">В корзину</a>
+            <a href="#" class="btn btn-product" @click.prevent="addBasket(product)">В корзину</a>
         </div>
     </div>
 </template>
@@ -20,7 +20,8 @@ export default {
         product: Object
     },
     methods: {
-        upBasket: function(){
+        addBasket: function(product){
+            this.$store.dispatch('ADD_BASKET', product);
         }
     }
 }

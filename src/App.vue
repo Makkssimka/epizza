@@ -18,6 +18,9 @@ export default {
     "header-component": Header,
     "menu-component": Menu,
     "footer-component": Footer
+  },
+  mounted: function(){
+    this.$store.dispatch('GET_BASKET');
   }
   
 }
