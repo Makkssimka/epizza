@@ -22,7 +22,7 @@ body
 .btn-product
     color: $red
     border: 1px solid $red
-    transition: all 0.3s
+    transition: color 0.3s, background-color 0.3s
     &:hover
         color: #fff
         background-color: $red
@@ -136,6 +136,114 @@ body
         .visible-basket
             opacity: 1
             visibility: visible
+        &:hover
+            .basket-menu-list
+                transition: all 0.5s
+                opacity: 1
+                visibility: visible
+    .basket-menu-list
+        opacity: 0
+        visibility: hidden
+        position: absolute
+        padding: 15px 5px 65px 20px
+        border-radius: 10px
+        right: 0
+        top: calc(100% + 15px)
+        background-color: #fff
+        box-shadow: 0 0 10px 5px rgba(34,34,34,0.1);
+        transition: all 0.5s 0.5s
+        .scroll-bar
+            overflow: auto
+            min-width: 300px
+            max-height: 60vh
+            padding-right: 20px
+        .scrollbar-track
+            background: none
+        .scrollbar-thumb
+            background: rgba(0, 0, 0, .3);
+        ul
+            margin: 0
+            padding: 0
+            list-style: none
+        li
+            display: flex
+            margin: 25px 0
+        .image-baket
+            display: flex
+            align-items: center
+            justify-content: center
+            img
+                margin-right: 8px
+                width: 90px
+                height: auto
+        .title-basket
+            flex: 1
+            display: flex
+            align-items: flex-start
+            flex-direction: column
+            text-align: left
+            img
+                width: 20px
+                height: auto
+            p
+                font-family: 'Nunito'
+                padding: 0
+                margin: 0
+                font-size: 1em
+            p.count-basket
+                font-size: 0.8em
+                color: $grey
+            .remove-item
+                opacity: 0.6
+                transition: opacity 0.3s
+                &:hover
+                    opacity: 1
+            .couter-basket
+                margin-top: 10px
+                a
+                    text-align: center
+                    border-radius: 8px
+                    width: 25px
+                    height: 25px
+                    padding: 0 0 2px 0
+                    font-size: 1.4em
+                    line-height: 1
+                span
+                    font-family: 'Nunito'
+                    margin: 0 8px
+                    padding: 0
+            .title-one
+                width: 100%
+                display: flex
+                justify-content: space-between
+            .title-two
+                width: 100%
+                display: flex
+                justify-content: space-between
+                align-items: center
+            .price-item-total
+                margin-top: 10px
+                font-family: 'Nunito'
+                font-size: 1em
+                font-weight: 600
+    .total-price-basket
+        position: absolute
+        bottom: 0
+        right: 0
+        left: 0
+        padding: 15px 25px
+        display: flex
+        justify-content: space-between
+        font-size: 1.1em
+        font-weight: 500
+        background-color: #fff
+        border-radius: 10px
+        z-index: 50
+        span
+            margin: 0
+            padding: 0
+            
+
 .list-menu-visible
     border-bottom: 1px solid #DCDCDC
     .list-menu li
@@ -212,6 +320,18 @@ body
             font-family: 'Nunito'
             font-size: 1.35em
             font-weight: 600
+    .counter-product
+        a
+            text-align: center
+            padding: 6px 8px 8px
+            width: 16px
+            font-size: 1.4em
+            line-height: 0.8
+        span
+            font-family: 'Nunito'
+            font-size: 1em
+            font-weight: 500
+            padding: 0 8px
 
 //Стили для блока подвал
 .footer-wrapper
