@@ -1,7 +1,7 @@
 <template>
     <div class="product-item">
         <a href="#" class="images-product">
-            <img :src="pizza.images.preview" alt="">
+            <img :src="pizza.image" alt="">
         </a>
         <div class="desc-product">
             <p class="title-product">{{ pizza.title }}</p>

@@ -10,8 +10,8 @@ const pizzaArray = [
             lt: 685
         },
         structure: ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        image: '/images/pizza/piper-bold.jpeg',
         images: {
-            preview: '/images/pizza/piper-bold.jpeg',
             bold: '/images/pizza/piper-bold.jpeg',
             thin: '/images/pizza/piper-thin.jpeg'
         }
@@ -27,8 +27,8 @@ const pizzaArray = [
             lt: 685
         },
         structure: ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        image: '/images/pizza/piper-bold.jpeg',
         images: {
-            preview: '/images/pizza/piper-bold.jpeg',
             bold: '/images/pizza/piper-bold.jpeg',
             thin: '/images/pizza/piper-thin.jpeg'
         }
@@ -44,8 +44,8 @@ const pizzaArray = [
             lt: 685
         },
         structure: ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        image: '/images/pizza/piper-bold.jpeg',
         images: {
-            preview: '/images/pizza/piper-bold.jpeg',
             bold: '/images/pizza/piper-bold.jpeg',
             thin: '/images/pizza/piper-thin.jpeg'
         }
@@ -61,8 +61,8 @@ const pizzaArray = [
             lt: 685
         },
         structure: ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        image: '/images/pizza/piper-bold.jpeg',
         images: {
-            preview: '/images/pizza/piper-bold.jpeg',
             bold: '/images/pizza/piper-bold.jpeg',
             thin: '/images/pizza/piper-thin.jpeg'
         }
@@ -78,8 +78,8 @@ const pizzaArray = [
             lt: 685
         },
         structure: ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        image: '/images/pizza/piper-bold.jpeg',
         images: {
-            preview: '/images/pizza/piper-bold.jpeg',
             bold: '/images/pizza/piper-bold.jpeg',
             thin: '/images/pizza/piper-thin.jpeg'
         }
@@ -95,8 +95,8 @@ const pizzaArray = [
             lt: 685
         },
         structure: ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        image: '/images/pizza/piper-bold.jpeg',
         images: {
-            preview: '/images/pizza/piper-bold.jpeg',
             bold: '/images/pizza/piper-bold.jpeg',
             thin: '/images/pizza/piper-thin.jpeg'
         }
@@ -112,8 +112,8 @@ const pizzaArray = [
             lt: 685
         },
         structure: ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        image: '/images/pizza/piper-bold.jpeg',
         images: {
-            preview: '/images/pizza/piper-bold.jpeg',
             bold: '/images/pizza/piper-bold.jpeg',
             thin: '/images/pizza/piper-thin.jpeg'
         }
@@ -129,8 +129,8 @@ const pizzaArray = [
             lt: 685
         },
         structure: ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        image: '/images/pizza/piper-bold.jpeg',
         images: {
-            preview: '/images/pizza/piper-bold.jpeg',
             bold: '/images/pizza/piper-bold.jpeg',
             thin: '/images/pizza/piper-thin.jpeg'
         }

@@ -407,4 +407,74 @@ body
             opacity: 0.6
             text-align: center
 
-                
+//Стили для блока вобор питцы
+.pizza-select-wrapper   
+    position: fixed
+    overflow-y: scroll
+    top: 0
+    right: 0
+    left: 0
+    height: 100%
+    background-color: rgba(0,0,0,0.3)
+    z-index: 999
+    .pizza-select
+        position: absolute
+        top: 0
+        right: 0
+        width: 550px
+        padding: 25px
+        min-height: calc(100% - 50px)
+        background-color: #fff
+    .pizza-size-image
+        position: relative
+        height: 450px
+        display: flex
+        align-items: center
+        justify-content: center
+    .radius
+        display: block
+        position: absolute
+        border: 1px dashed $red
+        border-radius: 50%
+        &:before
+            content: ""
+            display: block
+            padding-top: 100%
+    .small-radius
+        width: 300px
+    .middle-radius
+        width: 380px
+    .large-radius
+        width: 460px
+    img.pizza-radius
+        position: absolute
+        max-width: 320px
+        border-radius: 50%
+    .pizza-size-button
+        display: flex
+        width: 100%
+        justify-content: center
+        margin-top: 25px
+    .pizza-size-chekbox
+        &:nth-child(1)
+            label
+                border-radius: 10px 0 0 10px
+        &:nth-child(3)
+            label
+                border-radius: 0 10px 10px 0
+        input
+            position: fixed
+            top: -1000px
+        label
+            font-size: 0.9em
+            margin-right: -1px
+            display: inline-block
+            padding: 8px 14px 8px 15px
+            border: 1px solid $grey-simple
+            cursor: pointer
+            transition: all 0.3s
+        input:checked+label
+            background-color: $grey-simple
+            color: #fff
+        
+        
