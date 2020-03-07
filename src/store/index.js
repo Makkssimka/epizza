@@ -8,7 +8,8 @@ export default new Vuex.Store({
 		basket: [],
 		visible: false,
 		last: 'корзина пуста',
-		basketMessage: 'Добавлено в корзину:'
+		basketMessage: 'Добавлено в корзину:',
+		pizzaActive: null
 	},
 	getters: {
 		BASKET: state => {
@@ -41,6 +42,10 @@ export default new Vuex.Store({
 
 		LAST: state => {
 			return state.last;
+		},
+
+		PIZZA_ACTIVE: state => {
+			return state.pizzaActive;
 		}
 	},
 	mutations: {
@@ -113,6 +118,14 @@ export default new Vuex.Store({
 			item.count++;
 			context.commit('UP_BASKET');
 		},
+
+		SET_ACTIVE_PIZZA: (context, pizza) => {
+			context.state.pizzaActive = pizza;
+		},
+
+		UNSET_ACTIVE_PIZZA: (context) => {
+			context.state.pizzaActive = null;
+		}
 
 	}
 })

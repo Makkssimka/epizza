@@ -1,6 +1,6 @@
 <template>
     <div class="product-item">
-        <a href="#" class="images-product">
+        <a href="#" class="images-product" @click.prevent="selectPizza(pizza)">
             <img :src="pizza.image" alt="">
         </a>
         <div class="desc-product">
@@ -8,8 +8,8 @@
             <p class="structure-product">{{ pizza.structure.join(', ') }}</p>
         </div>
         <div class="price-product-wrapper">
-            <div class="price-broduct">от {{ pizza.price.s }} &#8381;</div>
-            <a href="#" class="btn btn-product">Выбрать</a>
+            <div class="price-broduct">от {{ pizza.price.sb }} &#8381;</div>
+            <a href="#" class="btn btn-product" @click.prevent="selectPizza(pizza)">Выбрать</a>
         </div>
     </div>
 </template>
@@ -18,6 +18,11 @@
 export default {
     props: {
         pizza: Object
+    },
+    methods: {
+        selectPizza: function(pizza){
+            this.$store.dispatch('SET_ACTIVE_PIZZA', pizza);
+        }
     }
 }
 </script>

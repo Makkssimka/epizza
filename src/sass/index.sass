@@ -26,6 +26,15 @@ body
     &:hover
         color: #fff
         background-color: $red
+.btn-select
+    color: #ffffff
+    border: 1px solid $red
+    background-color: $red
+    transition: color 0.3s, background-color 0.3s
+    &:hover
+        color: #fff
+        background-color: $red-hover
+
 //Стили шапки сайта
 .header-wrapper
     padding: 15px 0 5px
@@ -417,11 +426,25 @@ body
     height: 100%
     background-color: rgba(0,0,0,0.3)
     z-index: 999
+    opacity: 0
+    visibility: hidden
+    transition: all 0.5s
+    .close-select
+        position: fixed
+        top: 25px
+        width: 35px
+        height: auto
+        opacity: 0.6
+        transition: opacity 0.3s
+        z-index: 999
+        cursor: pointer
+        &:hover
+            opacity: 1
     .pizza-select
         position: absolute
         top: 0
         right: 0
-        width: 550px
+        width: 500px
         padding: 25px
         min-height: calc(100% - 50px)
         background-color: #fff
@@ -446,15 +469,27 @@ body
         width: 380px
     .large-radius
         width: 460px
-    img.pizza-radius
+    .pizza
         position: absolute
-        max-width: 320px
         border-radius: 50%
-    .pizza-size-button
-        display: flex
-        width: 100%
-        justify-content: center
+        transition: max-width 0.5s
+    .pizza-small
+        max-width: 320px
+    .pizza-middle
+        max-width: 400px
+    .pizza-large
+        max-width: 480px
+    .pizza-select-name
+        font-size: 1.8em
+        text-align: center
+        font-family: 'Nunito'
         margin-top: 25px
+    .pizza-select-subname
+        text-align: center
+        color: $grey
+    .pizza-select-structure
+        text-align: center
+        margin: 8px 0
     .pizza-size-chekbox
         &:nth-child(1)
             label
@@ -466,15 +501,39 @@ body
             position: fixed
             top: -1000px
         label
-            font-size: 0.9em
+            font-size: 0.8em
             margin-right: -1px
             display: inline-block
-            padding: 8px 14px 8px 15px
+            padding: 6px 12px 6px 13px
             border: 1px solid $grey-simple
             cursor: pointer
             transition: all 0.3s
         input:checked+label
             background-color: $grey-simple
             color: #fff
+    .inactive-checkbox
+        opacity: 0.4
+        pointer-events: none
+    .pizza-width-button
+        display: flex
+        width: 100%
+        justify-content: center
+        margin-top: 15px
+        .pizza-size-chekbox
+            &:nth-child(2)
+                label
+                    border-radius: 0 10px 10px 0
+    .pizza-size-button
+        display: flex
+        width: 100%
+        justify-content: center
+        margin-top: 15px
+    .pizza-add-button
+        text-align: center
+        margin-top: 25px
+
+.pizza-select-visible
+    opacity: 1
+    visibility: visible
         
         

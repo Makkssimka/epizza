@@ -18,7 +18,8 @@
                             <div class="title-one">
                                 <div>
                                     <p>{{ item.product.title }}</p>
-                                    <p class="count-basket">{{ item.count }} шт.</p>
+                                    <p v-if="item.product.type" class="count-basket">{{ item.product.structure }} </p>
+                                    <p v-else class="count-basket">{{ item.count }} шт.</p>
                                 </div>
                                 <a class="remove-item" href="#" @click.prevent="removeItem(index)">
                                     <img src="/images/remove-basket.svg">
@@ -91,7 +92,6 @@ export default {
     filters: {
         money: function(value){
             return value.toLocaleString('ru-RU');
-
         }
     }
 }
