@@ -75,7 +75,8 @@ body
 //Стил меню
 .menu-wrapper
     position: sticky
-    background-color: #fff
+    background-color: rgba(255,255,255,0.8)
+    backdrop-filter: blur(3px)
     top: 0
     border-bottom: 1px solid #fff
     z-index: 100
@@ -257,6 +258,60 @@ body
     border-bottom: 1px solid #DCDCDC
     .list-menu li
         transform: translateX(0)
+        
+//Стили для мобильной корзины
+.mobile-basket
+    display: none
+    position: relative
+    z-index: 500
+    .basket-message
+        position: fixed
+        top: 13%
+        left: 10px
+        right: 10px
+        text-align: center
+        font-size: 0.8em
+        padding: 15px 25px
+        border-radius: 10px
+        background-color: rgba(34,34,34,0.9)
+        color: #fff
+        opacity: 0
+        visibility: hidden
+        transition: all 0.3s
+        p
+            margin: 0
+            padding: 0
+            line-height: 1.4
+    .visible-basket
+        opacity: 1
+        visibility: visible
+    .basket-menu-list
+        display: none
+    .basket-mobile
+        position: fixed
+        display: block
+        background-color: $red
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px
+        right: 30px
+        bottom: 35px
+        padding: 15px
+        border-radius: 50%
+        .basket-number-mobile
+            position: absolute
+            display: flex
+            align-items: center
+            justify-content: center
+            width: 30px
+            height: 30px
+            right: -5px
+            top: -5px
+            color: $red
+            background-color: #fff
+            border: 1px solid $red
+            border-radius: 50%
+        img
+            width: 35px
+            height: 35px
 
 //Главная страница
 .index-wrapper
@@ -277,6 +332,8 @@ body
         &:hover
             .owl-theme .owl-dots
                 opacity: 1
+    .carousel-mobile
+        display: none
 
 //Стили компонента продукты
 .head-product
@@ -420,6 +477,7 @@ body
 .pizza-select-wrapper   
     position: fixed
     overflow-y: scroll
+    overflow-x: hidden
     top: 0
     right: 0
     left: 0
@@ -536,4 +594,4 @@ body
     opacity: 1
     visibility: visible
         
-        
+@import "/_media"     

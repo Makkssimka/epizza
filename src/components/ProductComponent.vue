@@ -1,5 +1,5 @@
 <template>
-    <div class="product-item">
+    <div class="product-item product-item-mobile">
         <a href="#" class="images-product">
             <img :src="product.image" alt="">
         </a>

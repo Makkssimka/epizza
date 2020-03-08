@@ -1,5 +1,9 @@
 <template>
     <div class="bascket-menu">
+        <a href="#" class="basket-mobile">
+            <img src="/images/shopping-bag.svg">
+            <div class="basket-number-mobile">{{ basketLength }}</div>
+        </a>
         <a href="#" class="bascket-block">
             Корзина <span class="number">{{ basketLength }}</span>
         </a>

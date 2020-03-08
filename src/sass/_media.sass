@@ -1,0 +1,97 @@
+@media screen and (max-width: 768px)
+    .header-wrapper
+        display: none
+    .menu-wrapper
+        padding: 0 10px
+        .list-menu
+            max-width: 100%
+            overflow: auto
+            li
+                transform: none
+        .bascket-menu
+            display: none
+    .mobile-basket
+        display: block
+    .index-wrapper
+        padding: 0 10px
+        .carousel-full
+            display: none
+        .carousel-mobile
+            display: block
+            .owl-theme .owl-nav.disabled + .owl-dots
+                position: absolute
+                left: 0
+                right: 0
+                bottom: 55px
+                span
+                    opacity: 0.7
+            img
+                border-radius: 15px
+            p
+                text-align: center
+
+    .product-wrapper
+        margin-top: 0
+        .product-item
+            position: relative
+            padding: 25px 0
+            width: 100%
+            display: flex
+            flex-wrap: wrap
+        .images-product
+            position: absolute
+            width: 55%
+            left: -18%
+            top: 10px
+        .desc-product
+            width: 60%
+            padding-left: 40%
+            .title-product
+                line-height: 1.1
+        .price-product-wrapper
+            width: 60%
+            padding-left: 40%
+        .product-item-mobile
+            .images-product
+                width: 40%
+                left: -2%
+
+    .footer-wrapper
+        .container
+            padding: 15px 0
+            flex-direction: column
+            text-align: center
+        .text-social
+            line-height: 1.1
+        .list-social
+            justify-content: center
+            margin-top: 15px
+        .footer-menu
+            padding: 15px 10px
+        .footer-list-menu
+            display: flex
+            ul
+                width: 50%
+                &:nth-child(2)
+                    margin-left: 0
+        .footer-list-number
+            margin-top: 15px
+
+    .pizza-select-wrapper
+        .pizza-select
+            position: absolute
+            top: 0
+            right: 0
+            width: calc(100% - 50px)
+            padding: 25px
+        .close-select
+            opacity: 1
+            padding: 8px
+            display: block
+            background-color: #fff
+            border-radius: 50%
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px
+        .pizza-add-button
+            .btn
+                padding: 15px 35px
+

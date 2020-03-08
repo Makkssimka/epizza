@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <pizza-select></pizza-select>
+    <mobile-basket></mobile-basket>
     <header-component></header-component>
     <menu-component></menu-component>
     <router-view></router-view>
@@ -14,9 +15,11 @@ import Header from "./components/HeaderComponent"
 import Menu from "./components/MenuComponent"
 import Footer from "./components/FooterComponent"
 import PizzaSelect from "./components/PizzaSelectComponent"
+import MobileBasket from "./components/MobileBasketComponent"
 
 export default {
   components: {
+    "mobile-basket": MobileBasket,
     "header-component": Header,
     "menu-component": Menu,
     "footer-component": Footer,

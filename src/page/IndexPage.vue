@@ -5,6 +5,24 @@
             <img src="/images/slide2.jpeg" alt="">
             <img src="/images/slide3.jpeg" alt="">
         </carousel>
+        <carousel class="carousel-mobile" :margin=25 :items=1 :autoplay="false" :nav="false">
+            <div class="item-carousel">
+                <img src="/images/slide1-min.jpeg" alt="">
+                <p>Две бутылочки Coca-Cola по суперцене</p>
+            </div>
+            <div class="item-carousel">
+                <img src="/images/slide2-min.jpeg" alt="">
+                <p>Большая пицца на самовывоз по суперцене</p>
+            </div>
+            <div class="item-carousel">
+                <img src="/images/slide3-min.jpeg" alt="">
+                <p>Три бутылочки Coca-Cola по суперцене</p>
+            </div>
+            <div class="item-carousel">
+                <img src="/images/slide4-min.jpeg" alt="">
+                <p>Аррива!</p>
+            </div>
+        </carousel>
         <div class="container" id="pizza">
             <div class="product-wrapper">
                 <pizza-block 
