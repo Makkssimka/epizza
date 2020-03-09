@@ -1,9 +1,9 @@
 <template>
     <div class="mobile-basket">
-        <a href="#" class="basket-mobile">
+        <router-link to="/basket" class="basket-mobile">
             <img src="/images/shopping-bag.svg">
             <div class="basket-number-mobile">{{ basketLength }}</div>
-        </a>
+        </router-link>
         <div class="basket-message" :class="{'visible-basket':visible}">
             <p>{{ message }}</p>
             <p>{{ basketLast }}</p>

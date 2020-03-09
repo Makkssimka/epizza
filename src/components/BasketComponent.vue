@@ -1,12 +1,8 @@
 <template>
     <div class="bascket-menu">
-        <a href="#" class="basket-mobile">
-            <img src="/images/shopping-bag.svg">
-            <div class="basket-number-mobile">{{ basketLength }}</div>
-        </a>
-        <a href="#" class="bascket-block">
+        <router-link to="/basket" class="bascket-block">
             Корзина <span class="number">{{ basketLength }}</span>
-        </a>
+        </router-link>
         <div class="basket-message" :class="{'visible-basket':visible}">
             <p>{{ message }}</p>
             <p>{{ basketLast }}</p>
@@ -33,7 +29,7 @@
                                 <div class="couter-basket">
                                     <a class="btn btn-product" href="#" @click.prevent="removeBasket(item, index)">-</a>
                                     <span>{{ item.count }}</span>
-                                     <a class="btn btn-product" href="#" @click.prevent="addBasket(item)">+</a>
+                                    <a class="btn btn-product" href="#" @click.prevent="addBasket(item)">+</a>
                                 </div>
                                 <div class="price-item-total">
                                     {{ item.count*item.product.price | money }} &#8381;

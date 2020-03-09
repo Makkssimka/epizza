@@ -1,4 +1,9 @@
 <template>
+<div>
+    <pizza-select></pizza-select>
+    <mobile-basket></mobile-basket>
+    <header-component></header-component>
+    <menu-component></menu-component>
     <div class="index-wrapper">
         <carousel class="carousel-full" :autoplayHoverPause="true" :items=1 :autoplay="true" :nav="false">
             <img src="/images/slide1.jpeg" alt="">
@@ -73,15 +78,34 @@
             </div>
         </div>
     </div>
+    <footer-component></footer-component>
+</div>
 </template>
 
 <script>
 import carousel from "vue-owl-carousel";
 import pizzaBlock from "../components/PizzaComponent";
 import productBlock from "../components/ProductComponent";
+
+import Header from "../components/HeaderComponent"
+import Menu from "../components/MenuComponent"
+import Footer from "../components/FooterComponent"
+import PizzaSelect from "../components/PizzaSelectComponent"
+import MobileBasket from "../components/MobileBasketComponent"
+
 import {pizzaArray, souseArray, zakuskiArray, saultArray, drinkArray} from "../module/product";
 
 export default {
+    components: {
+        "mobile-basket": MobileBasket,
+        "header-component": Header,
+        "menu-component": Menu,
+        "footer-component": Footer,
+        "pizza-select": PizzaSelect,
+        carousel,
+        pizzaBlock,
+        productBlock
+    },
     data: function(){
         return {
             pizza: pizzaArray,
@@ -90,11 +114,6 @@ export default {
             sault: saultArray,
             drink: drinkArray
         }
-    },
-    components: {
-        carousel,
-        pizzaBlock,
-        productBlock
     }
 }
 </script>

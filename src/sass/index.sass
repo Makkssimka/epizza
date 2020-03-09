@@ -593,5 +593,154 @@ body
 .pizza-select-visible
     opacity: 1
     visibility: visible
-        
+
+//Стили для шапки заказов
+.layout-head-wrapper
+    padding: 15px 0 15px
+    border-bottom: 1px solid #DCDCDC
+    .container
+        display: flex
+        justify-content: space-between
+        align-items: center
+    .layout-head-logo
+        img
+            height: 50px
+            width: auto
+    .layout-head-step
+        ul
+            padding: 0
+            margin: 0
+            list-style: none
+            display: flex
+        li
+            position: relative
+            opacity: 1
+            width: 165px
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            color: $grey-simple
+            &:nth-child(2),&:nth-child(3)
+                &:before
+                    content: ''
+                    position: absolute
+                    z-index: 0
+                    right: 50%
+                    width: 100%
+                    border-bottom: 1px dashed $grey-simple
+                    top: 16px         
+            span
+                position: relative
+                z-index: 10
+                font-family: 'Nunito'
+                font-size: 1.2em
+                display: flex
+                justify-content: center
+                align-items: center
+                width: 32px
+                height: 32px
+                background-color: #fff
+                border: 1px solid $grey-simple
+                border-radius: 50%
+            p
+                font-family: 'Nunito'
+                margin: 0
+                padding: 3px 0 0
+            &.active
+                color: $black
+                span
+                    border-color: $black
+                &:nth-child(2),&:nth-child(3)
+                    &:before
+                        content: ''
+                        position: absolute
+                        z-index: 0
+                        right: 50%
+                        width: 100%
+                        border-bottom: 1px dashed $black
+                        top: 16px 
+//Стили для корзины заказов
+.layout-basket
+    .container
+        display: flex
+        justify-content: center
+    .basket-container
+        width: 58%
+    h1
+        font-family: 'Nunito'
+        font-size: 2.2em
+.layout-basket-list
+    ul
+        padding: 0
+        margin: 0
+        list-style: none
+
+    li
+        display: flex
+        align-items: center
+        padding: 20px 0
+        border-top: 1px solid #DCDCDC
+        &:last-child
+            border-bottom: 1px solid #DCDCDC
+    .layout-bsk-image
+        width: 80px
+        img
+            width: 67px
+            height: 67px
+    .layout-bsk-info
+        flex: 1 0
+        p
+            font-family: 'Nunito'
+            font-size: 1.5em
+            font-weight: 500
+            line-height: 1.2
+            padding: 0
+            margin: 0
+        span
+            font-size: 0.8em
+            color: $grey
+    .layout-bsk-counter
+        width: 120px
+        text-align: center
+        a
+            text-align: center
+            border-radius: 8px
+            width: 30px
+            height: 34px
+            padding: 3px 0 0
+            font-size: 1.5em
+            line-height: 1
+        span
+            font-size: 1.2em
+            font-family: 'Nunito'
+            margin: 0 10px
+            padding: 0
+    .layout-bsk-total
+        width: 100px
+        text-align: right
+        font-family: 'Nunito'
+        font-size: 1.4em
+    .layout-bsk-del
+        width: 45px
+        text-align: right
+        img
+            height: 20px
+            width: 20px
+        a
+            display: inline-block
+            padding: 8px
+            opacity: 0.6
+            transition: opacity 0.3s
+            &:hover
+                opacity: 1
+.layout-total-basket
+    font-family: 'Nunito'
+    font-size: 1.4em
+    padding: 25px 0 25px
+    text-align: right
+    span
+        margin-left: 25px
+        color: $red
+
 @import "/_media"     
