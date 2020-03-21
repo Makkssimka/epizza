@@ -6,13 +6,15 @@
     <menu-component></menu-component>
     <div class="index-wrapper">
         <carousel v-if="actions" class="carousel-full" :autoplayHoverPause="true" :items=1 :autoplay="true" :nav="false">
-            <img v-for="item in actions" :key="item.id" :src="item.images.full">
+            <router-link v-for="item in actions" :key="item.id" to="/action">
+                <img :src="item.images.full">
+            </router-link>
         </carousel>
         <carousel v-if="actions" class="carousel-mobile" :margin=25 :items=1 :autoplay="false" :nav="false">
-            <div v-for="item in actions" :key="item.id" class="item-carousel">
+            <router-link to="/action" v-for="item in actions" :key="item.id" class="item-carousel">
                 <img :src="item.images.mobile">
                 <p>{{ item.title }}</p>
-            </div>
+            </router-link>
         </carousel>
         <div class="container" id="pizza">
             <div class="product-wrapper">

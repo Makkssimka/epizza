@@ -1,4 +1,4 @@
-<? 
+<?php 
     header('Access-Control-Allow-Origin: *');
 
     $data = json_decode($_POST['contact']);
