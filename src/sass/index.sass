@@ -10,6 +10,7 @@ body
     margin: 0
     padding: 0
     color: $black
+    min-height: 100%
 .container
     max-width: 1280px
     margin: 0 auto
@@ -26,6 +27,13 @@ body
     &:hover
         color: #fff
         background-color: $red
+.btn-grey
+    color: $black
+    border: 1px solid $grey
+    transition: color 0.3s, border 0.3s
+    &:hover
+        color: $red
+        border-color: $red
 .btn-select
     color: #ffffff
     border: 1px solid $red
@@ -34,6 +42,79 @@ body
     &:hover
         color: #fff
         background-color: $red-hover
+.input
+    display: block
+    height: 40px
+    border-radius: 8px
+    background-color: #fff
+    border: 1px solid rgba(135,134,134,.32)
+    padding: 0 15px
+    color: #000
+    font-size: 16px
+    line-height: 40px
+    box-sizing: border-box
+    width: 100%
+    font-family: 'Nunito'
+    font-weight: 500
+    outline: none
+    box-shadow: none
+    appearance: none
+.input-error
+    border: 1px solid $red
+.textarea
+    display: block
+    border-radius: 8px
+    border: 1px solid rgba(135,134,134,.32)
+    padding: 9px 15px
+    color: #000
+    font-size: 16px
+    font-family: 'Nunito'
+    font-weight: 500
+    box-sizing: border-box
+    width: 100%
+    resize: none
+    outline: none
+    box-shadow: none
+    appearance: none
+
+//Прелоадера стили
+.preloader-wrapper
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background-color: #fff
+    display: flex
+    align-items: center
+    justify-content: center
+    z-index: 1500
+    flex-direction: column
+    img
+        width: 80px
+        height: auto
+    p
+        margin: 15px 0
+        font-family: 'Nunito'
+        font-weight: 500
+        font-size: 2.4em
+.preloader-top-slide
+    animation: hide 0.25s forwards
+.preloader-bottom-slide
+    animation: visible 0.25s forwards
+
+@keyframes hide
+    0%
+        transform: translateY(0)
+    100%
+        transform: translateY(-120vh)
+
+@keyframes visible
+    0%
+        transform: translateY(120vh)
+    100%
+        transform: translateY(0)
+
 
 //Стили шапки сайта
 .header-wrapper
@@ -98,6 +179,7 @@ body
         a.menu-image
             margin-left: 0
         a
+            white-space: nowrap
             font-weight: 500
             margin-left: 20px
             text-decoration: none
@@ -389,7 +471,7 @@ body
     .counter-product
         a
             text-align: center
-            padding: 6px 8px 8px
+            padding: 9px 8px 11px
             width: 16px
             font-size: 1.4em
             line-height: 0.8
@@ -472,6 +554,19 @@ body
             color: #ffffff
             opacity: 0.6
             text-align: center
+    .footer-copyright
+        width: 100%
+        color: #fff
+        background-color: #373535
+        .container
+            padding: 25px 0 15px
+            border-top: 1px solid $grey-simple
+            justify-content: center
+        a
+            color: #fff
+            text-transform: uppercase
+            margin-left: 8px
+            text-decoration: none
 
 //Стили для блока вобор питцы
 .pizza-select-wrapper   
@@ -660,13 +755,40 @@ body
                         width: 100%
                         border-bottom: 1px dashed $black
                         top: 16px 
+
+//Стили для мобильной шапки заказов
+.mobile-layout-header
+    border-bottom: 1px solid #DCDCDC
+    display: none
+    padding: 10px 10px
+    .container
+        display: flex
+        justify-content: space-between
+        align-items: center
+    .mobile-layout-logo
+        img
+            height: 35px
+            width: auto
+    .mobile-step
+        font-family: 'Nunito'
+        font-size: 1.2em
+        text-transform: uppercase
+        span
+            text-transform: none
+            color: $red
+
 //Стили для корзины заказов
-.layout-basket
+.layout-page
+    min-height: 100vh
+    display: flex
+    flex-direction: column
+.layout-full
+    flex: 1 0
     .container
         display: flex
         justify-content: center
-    .basket-container
-        width: 58%
+.basket-container
+    width: 58%
     h1
         font-family: 'Nunito'
         font-size: 2.2em
@@ -734,6 +856,10 @@ body
             transition: opacity 0.3s
             &:hover
                 opacity: 1
+    .empty-basket
+        font-family: 'Nunito'
+        text-align: center
+        font-size: 1.3em
 .layout-total-basket
     font-family: 'Nunito'
     font-size: 1.4em
@@ -742,5 +868,253 @@ body
     span
         margin-left: 25px
         color: $red
+.layout-button
+    margin-bottom: 45px
+    display: flex
+    justify-content: space-between
+
+//Стили для подвала заказа
+.layout-footer
+    background-color: #373535
+.layout-footer-copyright
+    width: 100%
+    color: #fff
+    padding: 15px 0 15px
+    border-top: 1px solid rgba(255,255,255, 0.3)
+    text-align: center
+    a
+        color: #fff
+        text-transform: uppercase
+        text-decoration: none
+.layout-footer-number
+    padding: 25px 0
+    text-align: right
+    a
+        color: #fff
+        text-decoration: none
+        font-size: 1.6em
+    p
+        padding: 0
+        margin: 0
+        color: #ffffff
+        opacity: 0.6
+
+//Стили для страницы заказ
+.layout-order
+    .basket-container
+        width: 45%
+        h1
+            margin-bottom: 15px
+    .person-info
+        display: flex
+        justify-content: space-between
+        input:nth-child(1)
+            width: 40%
+        input:nth-child(2)
+            width: 60%
+            margin-left: 15px
+    .delivery-btn-wrapper, .preorder-btn-wrapper, .pay-btn-wrapper
+        margin-bottom: 15px
+        input
+            position: fixed
+            top: -1000px
+        label
+            user-select: none
+            cursor: pointer
+            position: relative
+            font-family: 'Nunito'
+            font-size: 1.3em
+            &:before
+                position: absolute
+                top: 2px
+                right: -55px
+                content: ''
+                display: inline-block
+                width: 42px
+                height: 24px
+                background-color: #eee
+                border-radius: 12px
+                border: 1px solid #ccc
+                transition: background-color 0.3s, border 0.3s
+            &:after
+                top: 4px
+                right: -35px
+                position: absolute
+                content: ''
+                display: inline-block
+                width: 20px
+                height: 20px
+                background-color: #fff
+                border-radius: 15px
+                border: 1px solid #ccc
+                transition: right 0.3s
+        input:checked
+            &+label
+                &:before
+                    background-color: $red 
+                    border: 1px solid $red
+                &:after
+                    right: -53px
+    .delivery-info
+        margin-bottom: 25px
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+        input:nth-child(1)
+            width: 66.67%
+        input:nth-child(2)
+            width: calc(33.33% - 15px)
+            margin-left: 15px
+        input:nth-child(3)
+            margin-top: 15px
+            width: 33.33%
+        input:nth-child(4), input:nth-child(5)
+            margin-top: 15px
+            width: calc(33.33% - 15px)
+            margin-left: 15px
+        p
+            margin: 0
+        p.adress
+            display: flex
+            align-items: center
+            font-family: 'Nunito'
+            font-size: 1.3em
+            margin-top: 8px 
+            img
+                margin-right: 10px
+    .preorder-info
+        margin-bottom: 25px
+        display: flex
+        justify-content: flex-start
+        flex-wrap: wrap
+        input:nth-child(1)
+            width: 80px
+        input:nth-child(2)
+            width: 80px
+            margin-left: 15px
+        p
+            margin: 0
+        p.preorder
+            display: flex
+            align-items: center
+            font-family: 'Nunito'
+            font-size: 1.3em
+            margin-top: 8px 
+            img
+                margin-right: 10px
+    .pay-info
+        margin-bottom: 25px
+        display: flex
+        justify-content: flex-start
+        flex-wrap: wrap
+        align-items: center
+        input:nth-child(1)
+            width: 35%
+            margin-right: 15px
+        .pay-btn-wrapper
+            margin-bottom: 0
+        p
+            margin: 0
+        p.pay
+            display: flex
+            align-items: center
+            font-family: 'Nunito'
+            font-size: 1.3em
+            margin-top: 8px 
+            img
+                margin-right: 10px
+
+//Стили для страницы результат
+.layout-result
+    .basket-container
+        width: 45%
+        h1
+            text-align: center
+            margin-bottom: 10px
+    .result-wrapper
+        position: relative
+        text-align: center
+        padding-top: 70px
+        .result-img
+            position: absolute
+            top: 0
+            right: 0
+            left: 0
+            text-align: center
+            transition: all 0.5s
+            font-size: 3.5em
+            font-family: 'Nunito'
+            color: $red
+        .check-enter
+            opacity: 0
+            transform: translateY(-40px)
+        .check-leave-to
+            opacity: 0
+            transform: translateY(40px)
+        img
+            width: 60px
+            height: auto
+        .rotate
+            animation: rotate 1s infinite
+    .layout-button
+        justify-content: center
+@keyframes rotate
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+
+//Стили страницы акции
+.action-page
+    .head-product
+        margin: 0
+        line-height: 1.2
+    .action-list
+        margin: 5px -15px
+        display: flex
+        flex-wrap: wrap
+    .item-action
+        margin: 15px
+        width: calc(33.3% - 30px)
+        img
+            border-radius: 15px
+            width: 100%
+    .action-title
+        padding: 8px 0
+        font-size: 1.3em
+        font-family: 'Nunito'
+        font-weight: 500
+        line-height: 1.2
+    .action-description
+        color: $grey
+
+//Стили страницы контакты
+.contact-page
+    margin-bottom: 20px
+    .contact-wrapper
+        text-align: center
+    .contact-info
+        display: inline-block
+        margin: 15px
+    .head-product
+        margin: 0
+        line-height: 1.2
+    .contact-head
+        color: $grey
+        margin-top: 8px
+    .contact-desc
+        font-size: 1.2em
+        font-family: 'Nunito'
+        font-weight: 500
+        a
+            color: $black
+            text-decoration: none
+            translate: color 0.3s
+            &:hover
+                color: $red
+    .contact-map
+        margin-top: 20px
+        min-height: 400px
+        background-color: #dcdcdc
 
 @import "/_media"     

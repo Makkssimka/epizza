@@ -7,10 +7,10 @@
                 </router-link>
             </div>
             <div class="text-header">
-                <p>Доставка пиццы в <span>Волгораде</span></p>
+                <p>Доставка пиццы в <span>Волжском</span></p>
             </div>
             <div class="number-header">
-                <a href="tel:880045657890">8 800 4565-78-90</a>
+                <a href="tel:+79061718118">+7 906 171-81-18</a>
                 <p>Звонок бесплатный</p>
             </div>
         </div>

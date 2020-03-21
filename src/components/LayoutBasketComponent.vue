@@ -1,10 +1,10 @@
 <template>
-    <div class="layout-basket">
+    <div class="layout-basket layout-full">
         <div class="container">
             <div class="basket-container">
                 <h1>Корзина</h1>
                 <div class="layout-basket-list">
-                    <ul>
+                    <ul v-if="basket.length">
                         <li v-for="(item, index) in basket" :key="index">
                             <div class="layout-bsk-image">
                                 <img :src="item.product.image" alt="">
@@ -29,9 +29,16 @@
                             </div>
                         </li>
                     </ul>
+                    <p v-else class="empty-basket">
+                        Корзина пуста
+                    </p>
                 </div>
                 <div class="layout-total-basket">
                     Сумма заказа: <span>{{ total | money }} &#8381;</span>
+                </div>
+                <div class="layout-button">
+                    <router-link to="/" class="btn btn-grey">Вернуться в меню</router-link>
+                    <router-link v-if="basket.length" to="/order" class="btn btn-select">Продолжить</router-link>
                 </div>
             </div>
         </div>

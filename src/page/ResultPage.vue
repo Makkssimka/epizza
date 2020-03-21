@@ -1,21 +1,21 @@
 <template>
-    <div class="basket-page layout-page">
+    <div class="result-page layout-page">
         <layout-header :steps="step"></layout-header>
         <layout-mobile :step="stepMobile"></layout-mobile>
-        <layout-basket></layout-basket>
+        <result-header></result-header>
         <layout-footer></layout-footer>
     </div>
 </template>
 
 <script>
 import LayoutHeader from "../components/LayoutHeaderComponent";
-import LayoutBasket from "../components/LayoutBasketComponent";
+import LayoutResult from "../components/LayoutResultComponent";
 import LayoutFooter from "../components/LayoutFooterComponent";
 import LayoutMobile from "../components/LoyoutHeaderMobileComponent";
 
 export default {
     created: function(){
-        document.title = "Корзина | Ёpizza - доставка пиццы в Волжском";
+        document.title = "Заказ принят | Ёpizza - доставка пиццы в Волжском";
 
         let preloader = document.querySelector('.preloader-wrapper');
         setTimeout(() => {
@@ -31,16 +31,16 @@ export default {
             next();
         }, 250);
     },
-    components: {
+     components: {
         "layout-header": LayoutHeader,
-        "layout-basket": LayoutBasket,
+        "result-header": LayoutResult,
         "layout-footer": LayoutFooter,
         "layout-mobile": LayoutMobile
     },
     data: function(){
         return {
-            step: { one: true, two: false, three: false },
-            stepMobile: { name: "корзина", number: 1 }
+            step: { one: true, two: true, three: true },
+            stepMobile: { name: "заказ принят", number: 3 }
         }
     }
 }

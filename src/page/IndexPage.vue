@@ -5,27 +5,13 @@
     <header-component></header-component>
     <menu-component></menu-component>
     <div class="index-wrapper">
-        <carousel class="carousel-full" :autoplayHoverPause="true" :items=1 :autoplay="true" :nav="false">
-            <img src="/images/slide1.jpeg" alt="">
-            <img src="/images/slide2.jpeg" alt="">
-            <img src="/images/slide3.jpeg" alt="">
+        <carousel v-if="actions" class="carousel-full" :autoplayHoverPause="true" :items=1 :autoplay="true" :nav="false">
+            <img v-for="item in actions" :key="item.id" :src="item.images.full">
         </carousel>
-        <carousel class="carousel-mobile" :margin=25 :items=1 :autoplay="false" :nav="false">
-            <div class="item-carousel">
-                <img src="/images/slide1-min.jpeg" alt="">
-                <p>Две бутылочки Coca-Cola по суперцене</p>
-            </div>
-            <div class="item-carousel">
-                <img src="/images/slide2-min.jpeg" alt="">
-                <p>Большая пицца на самовывоз по суперцене</p>
-            </div>
-            <div class="item-carousel">
-                <img src="/images/slide3-min.jpeg" alt="">
-                <p>Три бутылочки Coca-Cola по суперцене</p>
-            </div>
-            <div class="item-carousel">
-                <img src="/images/slide4-min.jpeg" alt="">
-                <p>Аррива!</p>
+        <carousel v-if="actions" class="carousel-mobile" :margin=25 :items=1 :autoplay="false" :nav="false">
+            <div v-for="item in actions" :key="item.id" class="item-carousel">
+                <img :src="item.images.mobile">
+                <p>{{ item.title }}</p>
             </div>
         </carousel>
         <div class="container" id="pizza">
@@ -93,9 +79,53 @@ import Footer from "../components/FooterComponent"
 import PizzaSelect from "../components/PizzaSelectComponent"
 import MobileBasket from "../components/MobileBasketComponent"
 
-import {pizzaArray, souseArray, zakuskiArray, saultArray, drinkArray} from "../module/product";
+import axios from 'axios';
 
 export default {
+    data: function(){
+        return {
+            pizza: null,
+            souse: null,
+            zakuski: null,
+            sault: null,
+            drink: null,
+            actions: null
+        }
+    },
+    created: function(){
+        document.title = "Ёpizza - доставка пиццы в Волжском";
+
+        let urlProduct = this.$store.getters.URL+"product";
+        axios.get(urlProduct).then((response) => {
+            this.souse = response.data.souse;
+            this.zakuski = response.data.zakuski;
+            this.sault = response.data.sault;
+            this.drink = response.data.drink;
+        });
+
+        let urlPizza = this.$store.getters.URL+"pizza";
+        axios.get(urlPizza).then((response) => {
+            this.pizza = response.data;
+            let preloader = document.querySelector('.preloader-wrapper');
+            setTimeout(() => {
+                preloader.classList.remove('preloader-bottom-slide');
+                preloader.classList.add('preloader-top-slide');
+            }, 350);
+        });
+
+        let urlActions = this.$store.getters.URL+"action";
+        axios.get(urlActions).then((response) => {
+            this.actions = response.data;
+        });
+    },
+    beforeRouteLeave (to, from, next) {
+        let preloader = document.querySelector('.preloader-wrapper');
+        preloader.classList.remove('preloader-top-slide');
+        preloader.classList.add('preloader-bottom-slide');
+        setTimeout(() => {
+            next();
+        }, 250);
+    },
     components: {
         "mobile-basket": MobileBasket,
         "header-component": Header,
@@ -105,15 +135,6 @@ export default {
         carousel,
         pizzaBlock,
         productBlock
-    },
-    data: function(){
-        return {
-            pizza: pizzaArray,
-            souse: souseArray,
-            zakuski: zakuskiArray,
-            sault: saultArray,
-            drink: drinkArray
-        }
     }
 }
 </script>

@@ -9,11 +9,17 @@ export default new Vuex.Store({
 		visible: false,
 		last: 'корзина пуста',
 		basketMessage: 'Добавлено в корзину:',
-		pizzaActive: null
+		pizzaActive: null,
+		contact: null,
+		url: "/api/"
 	},
 	getters: {
 		BASKET: state => {
 			return state.basket;
+		},
+
+		URL: state => {
+			return state.url;
 		},
 
 		BASKET_LEN: state => {
@@ -46,6 +52,10 @@ export default new Vuex.Store({
 
 		PIZZA_ACTIVE: state => {
 			return state.pizzaActive;
+		},
+
+		CONTACT: state => {
+			return state.contact;
 		}
 	},
 	mutations: {
@@ -77,6 +87,11 @@ export default new Vuex.Store({
 			context.state.last = `${product.title} 1 шт`;
 			context.state.visible = true;
 			setTimeout(() => context.state.visible = false, 2000);
+		},
+
+		CLEAR_BASKET: (context) => {
+			context.state.basket = [];
+			context.commit('UP_BASKET');
 		},
 
 		REMOVE_BASKET: (context, product) => {
@@ -123,8 +138,16 @@ export default new Vuex.Store({
 			context.state.pizzaActive = pizza;
 		},
 
-		UNSET_ACTIVE_PIZZA: (context) => {
+		UNSET_ACTIVE_PIZZA: context => {
 			context.state.pizzaActive = null;
+		},
+
+		ADD_CONTACT: (context, contact) => {
+			context.state.contact = contact;
+		},
+
+		REMOVE_CONTACT: context => {
+			context.state.contact = null;
 		}
 
 	}

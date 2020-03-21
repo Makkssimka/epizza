@@ -7,7 +7,7 @@
                 </div>
                 <ul class="list-social">
                     <li>
-                        <a href="#" target="_blank">
+                        <a href="https://www.instagram.com" target="_blank">
                             <img src="/images/instagram.svg">
                         </a>
                     </li>
@@ -17,7 +17,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" target="_blank">
+                        <a :href="okShare" target="_blank">
                             <img src="/images/ok.svg">
                         </a>
                     </li>
@@ -27,24 +27,39 @@
         <div class="footer-menu">
             <div class="container">
                 <div class="footer-list-menu">
-                    <ul>
+                    <ul v-if="isIndex">
                         <li class="head-footer-menu">Наше меню</li>
-                        <li><a href="#pizza" @click.prevent="scrollAnkhor">Пицца</a></li>
+                        <li><a href="#pizza" @click="scrollAnkhor">Пицца</a></li>
                         <li><a href="#souse" @click.prevent="scrollAnkhor">Соусы</a></li>
                         <li><a href="#zakuski" @click.prevent="scrollAnkhor">Закуски</a></li>
                         <li><a href="#sault" @click.prevent="scrollAnkhor">Салаты</a></li>
                         <li><a href="#drink" @click.prevent="scrollAnkhor">Напитки</a></li>
+                        <li><router-link to="/action">Акции</router-link></li>
+                    </ul>
+                    <ul v-else>
+                        <li class="head-footer-menu">Наше меню</li>
+                        <li><router-link to="/#pizza" @click="scrollAnkhor">Пицца</router-link></li>
+                        <li><router-link to="/#souse" @click.prevent="scrollAnkhor">Соусы</router-link></li>
+                        <li><router-link to="/#zakuski" @click.prevent="scrollAnkhor">Закуски</router-link></li>
+                        <li><router-link to="/#sault" @click.prevent="scrollAnkhor">Салаты</router-link></li>
+                        <li><router-link to="/#drink" @click.prevent="scrollAnkhor">Напитки</router-link></li>
+                        <li><router-link to="/action">Акции</router-link></li>
                     </ul>
                     <ul>
                         <li class="head-footer-menu">О нас</li>
-                        <li><a href="#">Контакты</a></li>
-                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><router-link to="/contact">Контакты</router-link></li>
+                        <li><a target="_blank" href="https://yadi.sk/i/wsxtsEAhnmK_hQ">Политика конфиденциальности</a></li>
                     </ul>
                 </div>
                 <div class="footer-list-number">
-                    <a href="tel:880045657890">8 800 4565-78-90</a>
+                    <a href="tel:+79061718118">+7 906 171-81-18</a>
                     <p>Звонок бесплатный</p>
                 </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                2018-{{ todey }} &#169; <router-link to="/">Ёpizza</router-link>
             </div>
         </div>
     </footer>
@@ -66,7 +81,16 @@ export default {
     },
     computed: {
         vkShare: function(){
-            return `https://vk.com/share.php?url=https://epizza.su&title=Пицерия Ёpizza`;
+            return `https://vk.com/share.php?url=https://epizza.su`;
+        },
+        okShare: function(){
+            return `https://connect.ok.ru/offer?url=https://epizza.su`;
+        },
+        todey: function(){
+            return new Date().getFullYear();
+        },
+        isIndex: function(){
+            return (this.$route.path == '/')?true:false;
         }
     }
 }
