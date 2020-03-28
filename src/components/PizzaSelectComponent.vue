@@ -3,7 +3,6 @@
         <div class="pizza-select" v-if="pizza">
             <img class="close-select" src="/images/x.svg" @click="close"/>
             <div class="pizza-size-image">
-                <div class="small-radius radius"></div>
                 <div class="middle-radius radius"></div>
                 <div class="large-radius radius"></div>
                 <img v-if="width == 't'" class="pizza" :class="pizzaClass" :src="pizza.images.thin"/>
@@ -16,10 +15,6 @@
             </div>
             <div class="pizza-size-button">
                 <div class="pizza-size-chekbox">
-                    <input type="radio" name="size" id="s" value="s" v-model="size">
-                    <label for="s">Маленькая</label>
-                </div>
-                <div class="pizza-size-chekbox">
                     <input type="radio" name="size" id="m" value="m" v-model="size">
                     <label for="m">Средняя</label>
                 </div>
@@ -31,9 +26,9 @@
             <div class="pizza-width-button">
                 <div class="pizza-size-chekbox">
                     <input type="radio" name="width" id="b" value="b" v-model="width">
-                    <label for="b">Традиционное</label>
+                    <label for="b">Толстое</label>
                 </div>
-                <div class="pizza-size-chekbox" :class="{'inactive-checkbox': inactive}">
+                <div class="pizza-size-chekbox">
                     <input type="radio" name="width" id="t" value="t" v-model="width">
                     <label for="t">Тонкое</label>
                 </div>
@@ -50,7 +45,7 @@
 export default {
     data: function(){
         return{
-            size: 's',
+            size: 'm',
             width: 'b'
         }
     },
@@ -58,9 +53,6 @@ export default {
         pizzaClass: function(){
             let pSize = null;
             switch(this.size){
-                case 's':
-                    pSize = 'pizza-small';
-                    break;
                 case 'm':
                     pSize = 'pizza-middle';
                     break;
@@ -70,13 +62,10 @@ export default {
             }
             return pSize;
         },
-        inactive: function(){
-            return this.size == 's'?true:false;
-        },
         desc: function(){
-            let sz = {'s':25, 'm':30, 'l':35};
-            let wt = {'b':'традиционное', 't':'тонкое'};
-            return `${ sz[this.size] } см, ${ wt[this.width] } тесто`
+            let sz = {'m':30, 'l':35};
+            let wt = {'b':'толстое', 't':'тонкое'};
+            return `${ sz[this.size] } см, ${ wt[this.width] } тесто, ${ this.pizza.weight[this.size+this.width] } гр.`
         },
         pizza: function(){
             return this.$store.getters.PIZZA_ACTIVE;
@@ -86,9 +75,6 @@ export default {
         }
     },
     watch: {
-        size: function(value){
-            if(value == 's') this.width = 'b';
-        },
         pizza: function(value){
             if(value){
                 document.body.style.overflow = 'hidden';
@@ -103,7 +89,7 @@ export default {
     methods: {
         close: function(){
             this.$store.dispatch('UNSET_ACTIVE_PIZZA');
-            this.size = 's';
+            this.size = 'm';
             this.width = 'b';
         },
         addBasket: function(pizza){
@@ -117,7 +103,7 @@ export default {
 
             this.$store.dispatch('ADD_BASKET', product);
             this.$store.dispatch('UNSET_ACTIVE_PIZZA');
-            this.size = 's';
+            this.size = 'm';
             this.width = 'b';
         }
     }

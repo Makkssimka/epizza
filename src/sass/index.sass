@@ -118,7 +118,7 @@ body
 
 //Стили шапки сайта
 .header-wrapper
-    padding: 15px 0 5px
+    padding: 15px 15px 5px
     .container
         display: flex
         flex-direction: row
@@ -162,6 +162,7 @@ body
     border-bottom: 1px solid #fff
     z-index: 100
     transition: border 0.3s
+    padding: 0 15px
     .container
         display: flex
         align-items: center
@@ -425,6 +426,7 @@ body
     font-family: 'Nunito'
     font-size: 2.2em
     margin-top: 25px
+    padding-left: 15px
 .product-wrapper
     margin-top: 25px
     display: flex
@@ -432,6 +434,8 @@ body
     .product-item
         padding: 35px 15px
         width: calc(25% - 30px)
+        display: flex
+        flex-direction: column
     .images-product
         display: block
         position: relative
@@ -452,6 +456,7 @@ body
             width: 100%
             height: auto 
     .desc-product
+        flex: 1 1
         position: relative
         z-index: 10  
     .title-product
@@ -463,6 +468,7 @@ body
     .structure-product
         color: $grey-simple
         margin: 7px 0 25px
+        min-height: 4em
     .price-product-wrapper
         display: flex
         align-items: center
@@ -492,7 +498,7 @@ body
         justify-content: space-between
     .social-line
         background-color: $red
-        padding: 8px 10px
+        padding: 8px 15px
         .text-social
             display: flex
             align-items: center
@@ -523,7 +529,7 @@ body
             &:hover
                 background-color: rgba(255,255,255,1)
     .footer-menu
-        padding: 25px 10px
+        padding: 25px 15px
         background-color: #373535
     .footer-list-menu
         display: flex
@@ -619,8 +625,6 @@ body
             content: ""
             display: block
             padding-top: 100%
-    .small-radius
-        width: 300px
     .middle-radius
         width: 380px
     .large-radius
@@ -629,8 +633,6 @@ body
         position: absolute
         border-radius: 50%
         transition: max-width 0.5s
-    .pizza-small
-        max-width: 320px
     .pizza-middle
         max-width: 400px
     .pizza-large
@@ -650,7 +652,7 @@ body
         &:nth-child(1)
             label
                 border-radius: 10px 0 0 10px
-        &:nth-child(3)
+        &:nth-child(2)
             label
                 border-radius: 0 10px 10px 0
         input

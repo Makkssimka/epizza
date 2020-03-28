@@ -1,7 +1,7 @@
 <template>
     <div class="layout-footer">
         <div class="container layout-footer-number">
-            <a href="tel:+79061718118">+7 906 171-81-18</a>
+            <a href="tel:+79061718118">+7 906 17-18-118</a>
             <p>Звонок бесплатный</p>
         </div>
         <div class="container layout-footer-copyright">

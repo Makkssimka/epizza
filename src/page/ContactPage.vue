@@ -13,7 +13,7 @@
                     </div>
                     <div class="contact-info">
                         <div class="contact-head">Наш телефон:</div>
-                        <div class="contact-desc"><a href="tel:+79061718118">+7 906 171-81-18</a></div>
+                        <div class="contact-desc"><a href="tel:+79061718118">+7 906 17-18-118</a></div>
                     </div>
                     <div class="contact-info">
                         <div class="contact-head">Наш e-mail:</div>

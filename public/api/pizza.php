@@ -3,11 +3,12 @@
 class Item{
     private $item = [];
 
-    function __construct($id, $title, $price, $structure, $image, $images){
+    function __construct($id, $title, $price, $structure, $weight, $image, $images){
         $this->item['id'] = $id;
         $this->item['title'] = $title;
         $this->item['price'] = $price;
         $this->item['structure'] = $structure;
+        $this->item['weight'] = $weight;
         $this->item['image'] = $image;
         $this->item['images'] = $images;
     }
@@ -46,8 +47,9 @@ $pizzaArray = [
     new Item(
         1,
         'Пепперони с томатами',
-        ['sb' => 345, 'mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
+        ['mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
         ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        ['mb' => 590, 'mt' => 490,'lb' => 820, 'lt' => 700],
         '/images/pizza/piper-bold.jpeg',
         [
             'bold' => '/images/pizza/piper-bold.jpeg',
@@ -57,8 +59,9 @@ $pizzaArray = [
     new Item(
         2,
         'Пепперони с томатами',
-        ['sb' => 345, 'mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
-        ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        ['mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
+        ['томатный соус', 'моцарелла', 'томаты'],
+        ['mb' => 590, 'mt' => 490,'lb' => 820, 'lt' => 700],
         '/images/pizza/piper-bold.jpeg',
         [
             'bold' => '/images/pizza/piper-bold.jpeg',
@@ -68,8 +71,9 @@ $pizzaArray = [
     new Item(
         3,
         'Пепперони с томатами',
-        ['sb' => 345, 'mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
-        ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        ['mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
+        ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты', 'томатный соус', 'моцарелла', 'томаты'],
+        ['mb' => 590, 'mt' => 490,'lb' => 820, 'lt' => 700],
         '/images/pizza/piper-bold.jpeg',
         [
             'bold' => '/images/pizza/piper-bold.jpeg',
@@ -79,8 +83,9 @@ $pizzaArray = [
     new Item(
         4,
         'Пепперони с томатами',
-        ['sb' => 345, 'mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
+        ['mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
         ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        ['mb' => 590, 'mt' => 490,'lb' => 820, 'lt' => 700],
         '/images/pizza/piper-bold.jpeg',
         [
             'bold' => '/images/pizza/piper-bold.jpeg',
@@ -90,8 +95,9 @@ $pizzaArray = [
     new Item(
         5,
         'Пепперони с томатами',
-        ['sb' => 345, 'mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
+        ['mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
         ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        ['mb' => 590, 'mt' => 490,'lb' => 820, 'lt' => 700],
         '/images/pizza/piper-bold.jpeg',
         [
             'bold' => '/images/pizza/piper-bold.jpeg',
@@ -101,8 +107,9 @@ $pizzaArray = [
     new Item(
         6,
         'Пепперони с томатами',
-        ['sb' => 345, 'mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
+        ['mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
         ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        ['mb' => 590, 'mt' => 490,'lb' => 820, 'lt' => 700],
         '/images/pizza/piper-bold.jpeg',
         [
             'bold' => '/images/pizza/piper-bold.jpeg',
@@ -112,8 +119,9 @@ $pizzaArray = [
     new Item(
         7,
         'Пепперони с томатами',
-        ['sb' => 345, 'mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
-        ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        ['mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
+        ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты', 'томатный соус', 'моцарелла', 'томаты', 'томатный соус', 'моцарелла', 'томаты'],
+        ['mb' => 590, 'mt' => 490,'lb' => 820, 'lt' => 700],
         '/images/pizza/piper-bold.jpeg',
         [
             'bold' => '/images/pizza/piper-bold.jpeg',
@@ -123,8 +131,9 @@ $pizzaArray = [
     new Item(
         8,
         'Пепперони с томатами',
-        ['sb' => 345, 'mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
+        ['mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
         ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        ['mb' => 590, 'mt' => 490,'lb' => 820, 'lt' => 700],
         '/images/pizza/piper-bold.jpeg',
         [
             'bold' => '/images/pizza/piper-bold.jpeg',
@@ -134,8 +143,9 @@ $pizzaArray = [
     new Item(
         9,
         'Пепперони с томатами',
-        ['sb' => 345, 'mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
+        ['mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
         ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        ['mb' => 590, 'mt' => 490,'lb' => 820, 'lt' => 700],
         '/images/pizza/piper-bold.jpeg',
         [
             'bold' => '/images/pizza/piper-bold.jpeg',
@@ -145,8 +155,9 @@ $pizzaArray = [
     new Item(
         10,
         'Пепперони с томатами',
-        ['sb' => 345, 'mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
+        ['mb' => 515, 'mt' => 515,'lb' => 685, 'lt' => 685],
         ['Пикантная пепперони', 'томатный соус', 'моцарелла', 'томаты'],
+        ['mb' => 590, 'mt' => 490,'lb' => 820, 'lt' => 700],
         '/images/pizza/piper-bold.jpeg',
         [
             'bold' => '/images/pizza/piper-bold.jpeg',

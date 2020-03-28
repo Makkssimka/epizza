@@ -11,7 +11,7 @@ export default new Vuex.Store({
 		basketMessage: 'Добавлено в корзину:',
 		pizzaActive: null,
 		contact: null,
-		url: "http://epizza.loc/api/"
+		url: "https://epizza.su/api/"
 	},
 	getters: {
 		BASKET: state => {

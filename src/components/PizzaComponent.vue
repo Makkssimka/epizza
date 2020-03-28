@@ -5,10 +5,10 @@
         </a>
         <div class="desc-product">
             <p class="title-product">{{ pizza.title }}</p>
-            <p class="structure-product">{{ pizza.structure.join(', ') }}</p>
+            <p class="structure-product">{{ pizza.weight.mb }} гр, {{ pizza.structure.join(', ') }}</p>
         </div>
         <div class="price-product-wrapper">
-            <div class="price-broduct">от {{ pizza.price.sb }} &#8381;</div>
+            <div class="price-broduct">от {{ pizza.price.mb }} &#8381;</div>
             <a href="#" class="btn btn-product" @click.prevent="selectPizza(pizza)">Выбрать</a>
         </div>
     </div>

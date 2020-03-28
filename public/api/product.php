@@ -117,7 +117,7 @@ $drink = [
     new Item(6, 'Sprite в бутылке 0.9 л', 80, [], '/images/product/sprite.jpg'),
     new Item(7, 'Сок яблочный 0.2 л', 30, [], '/images/product/soc_jabl_2.jpg'),
     new Item(8, 'Сок яблочный 1 л', 85, [], '/images/product/soc_jabl_1.jpg'),
-    new Item(9, 'Сок апельсиновый 1 л', 85, [], '/images/product/soc_jabl_1.jpg'),
+    new Item(9, 'Сок апельсиновый 1 л', 85, [], '/images/product/soc_apels.jpg'),
     new Item(10, 'Чай Fuzetea 0,5 л персик-роза', 60, [], '/images/product/tea_persic.jpg'),
     new Item(11, 'Чай Fuzetea 0,5 л лесные ягоды-гибискус', 60, [], '/images/product/tea_jagoda.jpg'),
     new Item(12, 'Чай Fuzetea 0,5 л лимон-лемонграсс', 60, [], '/images/product/tea_limon.jpg')
