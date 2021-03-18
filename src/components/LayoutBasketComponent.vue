@@ -6,7 +6,11 @@
                 <div class="layout-basket-list">
                     <ul v-if="basket.length">
                         <li v-for="(item, index) in basket" :key="index">
-                            <div class="layout-bsk-image">
+                            <div v-if="Array.isArray(item.product.image)" class="layout-bsk-image-array">
+                                <div class="layout-bsk-image-left" :style="{'background-image': 'url('+item.product.image[0]+')'}"></div>
+                                <div class="layout-bsk-image-right" :style="{'background-image': 'url('+item.product.image[1]+')'}"></div>
+                            </div>
+                            <div v-else class="layout-bsk-image">
                                 <img :src="item.product.image" alt="">
                             </div>
                             <div class="layout-bsk-info">
@@ -36,6 +40,14 @@
                 <div class="layout-total-basket">
                     Сумма заказа: <span>{{ total | money }} &#8381;</span>
                 </div>
+                <div class="promocode-wrapper">
+                    <input type="text" class="input" v-model="promocode" placeholder="Введите промокод">
+                    <a href="#" class="btn btn-select" @click.prevent="promocodeSend">Применить</a>
+                    <div class="promo-message">{{ promoMessage }}</div>
+                </div>
+                <div class="layout-total-basket">
+                    Сумма к оплате: <span>{{ promeTotal | money }} &#8381;</span>
+                </div>
                 <div class="layout-button">
                     <router-link to="/" class="btn btn-grey">Вернуться в меню</router-link>
                     <router-link v-if="basket.length" to="/order" class="btn btn-select">Продолжить</router-link>
@@ -46,14 +58,37 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-    
+    data: function(){
+        return {
+            promocode: null,
+            promocodeList: [],
+            promoMessage: ""
+        }
+    },
+    created: function(){
+        let urlPromo = this.$store.getters.URL+"promocode";
+        axios.get(urlPromo).then((response) => {
+            this.promocodeList = response.data;
+        });
+
+        this.promocode = this.$store.getters.PROMOCODE?this.$store.getters.PROMOCODE.promocode:'';
+    },
     computed: {
         basket: function(){
             return this.$store.getters.BASKET;
         },
         total: function(){
             return this.$store.getters.BASKET_TOTAL;
+        },
+        promeTotal: function(){
+            return this.$store.getters.PROMO_TOTAL;
+        },
+        time: function(){
+            let dt = new Date();
+            return dt.getHours();
         }
     },
     methods: {
@@ -66,6 +101,38 @@ export default {
         },
         removeItem: function(index){
             this.$store.dispatch('REMOVE_ITEM', index);
+        },
+        promocodeSend: function(){
+            let promo = this.promocode?this.promocode.toLowerCase():'';
+            let promObj = this.promocodeList.find(item => item.promocode.toLowerCase() == promo);
+            if(!promObj){
+                this.$store.dispatch('SET_PROMOCODE', null);
+                this.promoMessage = "промокод не найден";
+                return false;
+            }
+            
+            if(this.time < promObj.time.from || this.time > promObj.time.to){
+                this.$store.dispatch('SET_PROMOCODE', null);
+                this.promoMessage = `промокод действует с ${promObj.time.from}:00 до ${promObj.time.to}:00`;
+                return false;
+            }
+
+            if(promObj.rules){
+                let ids = '';
+                this.basket.forEach(element => {
+                    ids += ' '+element.product.id;
+                });
+
+                if(!new RegExp(promObj.rules, 'gi').test(ids)){
+                    this.$store.dispatch('SET_PROMOCODE', null);
+                    this.promoMessage = "не выполнены все условия промокода";
+                    return false;
+                }
+            }
+
+
+            this.$store.dispatch('SET_PROMOCODE', promObj);
+            this.promoMessage = "промокод применен";
         }
     },
     filters: {

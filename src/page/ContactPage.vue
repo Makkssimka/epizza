@@ -41,6 +41,7 @@ export default {
     },
     created: function(){
         document.title = "Контакты | Ёpizza - доставка пиццы в Волжском"
+        document.querySelector("meta[name='description']").setAttribute('content', "Наши контактные телефоны и адреса");
 
         let preloader = document.querySelector('.preloader-wrapper');
         setTimeout(() => {

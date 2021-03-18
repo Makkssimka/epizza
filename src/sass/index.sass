@@ -42,6 +42,9 @@ body
     &:hover
         color: #fff
         background-color: $red-hover
+.btn-inactive
+    opacity: 0.5
+    pointer-events: none
 .input
     display: block
     height: 40px
@@ -140,6 +143,11 @@ body
             span
                 color: $red
                 font-weight: 500
+        .time-header
+            font-size: 1.1rem
+            text-transform: none
+            span
+                color: $red
     .number-header
         text-align: right
         a
@@ -261,6 +269,22 @@ body
         li
             display: flex
             margin: 25px 0
+        .image-basket-array
+            display: flex
+            align-items: center
+            justify-content: center
+            margin-right: 8px
+        .image-basket-item-left, .image-basket-item-right
+            width: 43px
+            height: 90px
+            background-size: cover
+            background-repeat: no-repeat
+        .image-basket-item-left
+            border-right: 2px solid #fff
+            background-position: left center
+        .image-basket-item-right
+            border-left: 2px solid #fff
+            background-position: right center
         .image-baket
             display: flex
             align-items: center
@@ -398,6 +422,8 @@ body
 
 //Главная страница
 .index-wrapper
+    .owl-carousel
+        z-index: auto
     .carousel-full
         .owl-theme .owl-dots
             position: absolute
@@ -458,7 +484,6 @@ body
     .desc-product
         flex: 1 1
         position: relative
-        z-index: 10  
     .title-product
         font-family: 'Nunito'
         margin: 0 0 7px
@@ -489,6 +514,26 @@ body
             font-size: 1em
             font-weight: 500
             padding: 0 8px
+    .product-delivery
+        width: calc(100% - 30px)
+        padding: 15px
+        background-color: $red
+        display: flex
+        align-items: center
+        justify-content: center
+        img
+            width: 75px
+            height: auto
+            margin-right: 25px
+        p
+            text-transform: uppercase
+            color: #fff
+            font-size: 1.4em
+
+#drink
+    .product-wrapper
+            .structure-product
+                min-height: 0
 
 //Стили для блока подвал
 .footer-wrapper
@@ -563,6 +608,15 @@ body
             color: #ffffff
             opacity: 0.6
             text-align: center
+    .time-footer
+        margin-top: 25px
+        text-align: center
+        color: #fff
+        div
+            opacity: 0.6
+        .time-footer-time
+            opacity: 1
+            font-size: 1.3rem
     .footer-copyright
         width: 100%
         color: #fff
@@ -572,9 +626,9 @@ body
             border-top: 1px solid $grey-simple
             justify-content: center
         a
+            display: inline-block
             color: #fff
             text-transform: uppercase
-            margin-left: 8px
             text-decoration: none
 
 //Стили для блока вобор питцы
@@ -648,47 +702,47 @@ body
     .pizza-select-structure
         text-align: center
         margin: 8px 0
+.pizza-size-chekbox
+    &:nth-child(1)
+        label
+            border-radius: 10px 0 0 10px
+    &:nth-child(2)
+        label
+            border-radius: 0 10px 10px 0
+    input
+        position: fixed
+        top: -5000px
+    label
+        font-size: 0.8em
+        margin-right: -1px
+        display: inline-block
+        padding: 6px 12px 6px 13px
+        border: 1px solid $grey-simple
+        cursor: pointer
+        transition: all 0.3s
+    input:checked+label
+        background-color: $grey-simple
+        color: #fff
+.inactive-checkbox
+    opacity: 0.4
+    pointer-events: none
+.pizza-width-button
+    display: flex
+    width: 100%
+    justify-content: center
+    margin-top: 15px
     .pizza-size-chekbox
-        &:nth-child(1)
-            label
-                border-radius: 10px 0 0 10px
         &:nth-child(2)
             label
                 border-radius: 0 10px 10px 0
-        input
-            position: fixed
-            top: -1000px
-        label
-            font-size: 0.8em
-            margin-right: -1px
-            display: inline-block
-            padding: 6px 12px 6px 13px
-            border: 1px solid $grey-simple
-            cursor: pointer
-            transition: all 0.3s
-        input:checked+label
-            background-color: $grey-simple
-            color: #fff
-    .inactive-checkbox
-        opacity: 0.4
-        pointer-events: none
-    .pizza-width-button
-        display: flex
-        width: 100%
-        justify-content: center
-        margin-top: 15px
-        .pizza-size-chekbox
-            &:nth-child(2)
-                label
-                    border-radius: 0 10px 10px 0
-    .pizza-size-button
-        display: flex
-        width: 100%
-        justify-content: center
-        margin-top: 15px
-    .pizza-add-button
-        text-align: center
-        margin-top: 25px
+.pizza-size-button
+    display: flex
+    width: 100%
+    justify-content: center
+    margin-top: 15px
+.pizza-add-button
+    text-align: center
+    margin-top: 25px
 
 .pizza-select-visible
     opacity: 1
@@ -810,11 +864,25 @@ body
         border-top: 1px solid #DCDCDC
         &:last-child
             border-bottom: 1px solid #DCDCDC
+    .layout-bsk-image-array
+        width: 80px
+        display: flex
+        .layout-bsk-image-left, .layout-bsk-image-right
+            width: 32px
+            height: 68px
+            background-size: cover
+            background-repeat: no-repeat
+        .layout-bsk-image-left
+            border-right: 2px solid #ffffff
+            background-position: left center
+        .layout-bsk-image-right
+            border-left: 2px solid #ffffff
+            background-position: right center
     .layout-bsk-image
         width: 80px
         img
-            width: 67px
-            height: 67px
+            width: 68px
+            height: 68px
     .layout-bsk-info
         flex: 1 0
         p
@@ -865,10 +933,23 @@ body
         font-family: 'Nunito'
         text-align: center
         font-size: 1.3em
+.promocode-wrapper  
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+    .btn
+        padding: 10px 24px
+    .input
+        width: 176px
+        margin-right: 10px
+    .promo-message
+        color: $grey
+        font-size: 0.9em
+        margin-left: 15px
 .layout-total-basket
     font-family: 'Nunito'
     font-size: 1.4em
-    padding: 25px 0 25px
+    padding: 15px 0 15px
     text-align: right
     span
         margin-left: 25px
@@ -1122,4 +1203,145 @@ body
         min-height: 400px
         background-color: #dcdcdc
 
+// Стил для блока двух пицц
+.two-select-pizza-wrapper
+    position: fixed
+    top: 100%
+    left: 0
+    right: 0
+    z-index: 999
+    .two-pizza-window
+        max-width: 950px
+        margin: 0 auto
+        position: relative
+        display: flex
+        padding: 15px
+        border-radius: 10px 10px 0 0
+        background-color: #fff
+        box-shadow: 0 0 8px rgba(0,0,0, 0.2)
+        transform: translateY(-100px)
+        transition: all 0.5s
+        &:hover
+            transform: translateY(-100%)
+    .two-pizza-close
+        position: absolute
+        top: 15px
+        left: 15px
+        padding: 5px
+        opacity: 0.6
+        cursor: pointer
+        z-index: 500
+        transition: all 0.3s
+        &:hover
+            opacity: 1
+    .two-pizza-open
+        display: none
+
+    .two-pizza-window-invisible
+        transform: translateY(50px) !important
+            
+    .two-pizza-image
+        position: relative
+        background-image: url(/images/pizza-simple.svg)
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center center
+        width: 350px
+        height: 350px
+        .two-img-left, .two-img-right
+            position: absolute
+            top: 0
+            bottom: 0
+            background-size: cover
+            background-repeat: no-repeat
+        .two-img-left
+            left: 0
+            right: 50%
+            background-position: left center
+            border-right: 3px #fff solid
+        .two-img-right
+            left: 50%
+            right: 0
+            background-position: right center
+            border-left: 3px #fff solid
+    .two-pizza-desc
+        flex: 1 1
+    .head-two-desc
+        text-align: center
+        font-family: 'Nunito'
+        font-size: 1.35em
+        font-weight: 600
+        letter-spacing: -1px
+    .subhead-two-desc
+        text-align: center
+        color: $grey-simple
+        font-size: 0.9rem
+    .left-pizza-wrapper
+        display: flex
+        justify-content: center
+    .empty-two-pizza
+        text-align: center
+        font-family: 'Nunito'
+        margin: 10px 15px 0
+        color: $grey-simple
+        img
+            width: 128px
+            height: auto
+    .full-two-pizza
+        width: 150px
+        position: relative
+        text-align: center
+        font-family: 'Nunito'
+        margin: 10px 15px 0
+        color: $black
+        img
+            width: 128px
+            height: auto
+    .remove-full-two-pizza
+        position: absolute
+        top: 0
+        cursor: pointer
+        z-index: 900
+        display: flex
+        align-items: center
+        justify-content: center
+        transition: all 0.3s
+        img
+            width: 24px
+            height: auto
+        &:hover
+            transform: rotate(90deg)
+    .full-two-left
+        .remove-full-two-pizza
+            left: 0
+        .full-two-img
+            position: relative
+            &::before
+                content: ""
+                position: absolute
+                top: 0
+                bottom: 0
+                left: 50%
+                right: 0
+                background-color: rgba(255,255,255, 0.9)
+    .full-two-right
+        .remove-full-two-pizza
+            left: 0
+        .full-two-img
+            position: relative
+            &::before
+                content: ""
+                position: absolute
+                top: 0
+                bottom: 0
+                left: 0
+                right: 50%
+                background-color: rgba(255,255,255, 0.9)
+    .pizza-close-button
+        display: none
+        text-align: center
+        margin-top: 15px
+        a
+            text-decoration: none
+            color: $grey-simple
 @import "/_media"     

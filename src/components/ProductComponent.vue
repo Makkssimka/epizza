@@ -16,13 +16,16 @@
                 <a href="#" class="btn btn-product" @click.prevent="addBasket(product)">+</a>
             </div>
             <div v-else class="btn-wrap-product">
-                <a href="#" class="btn btn-product" @click.prevent="addBasket(product)">В корзину</a>
+                <a href="#" v-if="isJob" class="btn btn-product btn-inactive">Закрыто</a>
+                <a href="#" v-else class="btn btn-product" @click.prevent="addBasket(product)">В корзину</a>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import job from '../modules/timeJob';
+
 export default {
     props: {
         product: Object
@@ -45,6 +48,9 @@ export default {
             else{
                 return false;
             }
+        },
+        isJob: function(){
+            return job;
         }
     }
 }

@@ -16,6 +16,7 @@ import LayoutMobile from "../components/LoyoutHeaderMobileComponent";
 export default {
     created: function(){
         document.title = "Заказ принят | Ёpizza - доставка пиццы в Волжском";
+        document.querySelector("meta[name='description']").setAttribute('content', "Номер вашего заказа");
 
         let preloader = document.querySelector('.preloader-wrapper');
         setTimeout(() => {

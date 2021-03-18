@@ -18,6 +18,7 @@
         </carousel>
         <div class="container" id="pizza">
             <div class="product-wrapper">
+                <pizza-two></pizza-two>
                 <pizza-block 
                     v-for="item in pizza" 
                     :key="item.id"
@@ -25,7 +26,7 @@
                 </pizza-block>
             </div>
         </div>
-        <div class="container" id="souse">
+        <div v-if="souse.length" class="container" id="souse">
             <div class="head-product">Соусы</div>
             <div class="product-wrapper">
                 <product-block 
@@ -35,7 +36,7 @@
                 </product-block>
             </div>
         </div>
-        <div class="container" id="zakuski">
+        <div v-if="zakuski.length" class="container" id="zakuski">
             <div class="head-product">Закуски</div>
             <div class="product-wrapper">
                 <product-block 
@@ -45,7 +46,7 @@
                 </product-block>
             </div>
         </div>
-        <div class="container" id="sault">
+        <div v-if="sault.length" class="container" id="sault">
             <div class="head-product">Салаты</div>
             <div class="product-wrapper">
                 <product-block 
@@ -55,7 +56,7 @@
                 </product-block>
             </div>
         </div>
-        <div class="container" id="drink">
+        <div v-if="drink.length" class="container" id="drink">
             <div class="head-product">Напитки</div>
             <div class="product-wrapper">
                 <product-block 
@@ -67,12 +68,15 @@
         </div>
     </div>
     <footer-component></footer-component>
+    <two-pizza-select></two-pizza-select>
 </div>
 </template>
 
 <script>
 import carousel from "vue-owl-carousel";
 import pizzaBlock from "../components/PizzaComponent";
+import pizzaTwo from "../components/PizzaTwoComponent";
+import twoPizzaSelect from "../components/TwoPizzaSelectComponent";
 import productBlock from "../components/ProductComponent";
 
 import Header from "../components/HeaderComponent"
@@ -86,16 +90,17 @@ import axios from 'axios';
 export default {
     data: function(){
         return {
-            pizza: null,
-            souse: null,
-            zakuski: null,
-            sault: null,
-            drink: null,
+            pizza: [],
+            souse: [],
+            zakuski: [],
+            sault: [],
+            drink: [],
             actions: null
         }
     },
     created: function(){
         document.title = "Ёpizza - доставка пиццы в Волжском";
+        document.querySelector("meta[name='description']").setAttribute('content', "Вкусная пицца с быстрой бесплатной доставкой домой и в офис в Волжском.");
 
         let urlProduct = this.$store.getters.URL+"product";
         axios.get(urlProduct).then((response) => {
@@ -136,7 +141,9 @@ export default {
         "pizza-select": PizzaSelect,
         carousel,
         pizzaBlock,
-        productBlock
+        pizzaTwo,
+        twoPizzaSelect,
+        productBlock,
     }
 }
 </script>

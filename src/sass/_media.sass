@@ -22,7 +22,7 @@
                 position: absolute
                 left: 0
                 right: 0
-                bottom: 55px
+                bottom: 20px
                 span
                     opacity: 0.7
             img
@@ -60,6 +60,10 @@
             .images-product
                 width: 40%
                 left: -2%
+        .product-delivery
+            margin: 15px 0
+            p
+                font-size: 1.2em
 
     .footer-wrapper
         .container
@@ -120,6 +124,11 @@
     .layout-basket-list
         li
             flex-wrap: wrap
+        .layout-bsk-image-array
+            width: 85px
+            .layout-bsk-image-left, .layout-bsk-image-right
+                width: 40px
+                height: 84px
         .layout-bsk-del
             display: none
         .layout-bsk-image
@@ -130,6 +139,7 @@
         .layout-bsk-info
             width: calc(75% - 15px)
             margin-left: 15px
+            margin-bottom: 10px
             flex: none
         .layout-bsk-counter
             width: 60%
@@ -140,6 +150,12 @@
         .layout-bsk-total
             width: 40%
             text-align: right
+    .promocode-wrapper 
+        justify-content: space-between
+        .promo-message
+            width: 100%
+            text-align: center
+            margin-top: 10px
     .layout-button
         .btn
             padding: 12px 18px
@@ -173,5 +189,47 @@
             display: block
             margin: 8px 0
 
+    // Стили для выбора двух пицц
+    .two-select-pizza-wrapper 
+        .two-pizza-window
+            padding-top: 10px
+            flex-direction: column
+            width: calc(100% - 50px)
+            margin: 0 10px
+            transform: translateY(-140px)
+            &:hover
+                transform: translateY(-140px)
+            .head-two-desc
+                margin-top: 0
+                line-height: 1.2
+                font-size: 1.2rem
+        .two-pizza-window-open
+            transform: translateY(-100%) !important
+        .two-pizza-window-invisible
+            transform: translateY(50px) !important
+        .two-pizza-image
+            display: none
+        .full-two-pizza
+            width: calc(50% - 20px)
+        .two-pizza-close
+            display: none
+        .two-pizza-open
+            display: block
+            text-align: center
+            img
+                width: 25px
+                height: auto
+                transition: all 0.3s
+        .two-pizza-open-open
+            img
+                transform: rotate(180deg)
+        .subhead-two-desc
+            margin: 10px 0 15px
+        .full-two-left
+            margin-left: 0
+        .full-two-right
+            margin-right: 0
+        .pizza-close-button
+            display: block
     
 

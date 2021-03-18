@@ -3,6 +3,8 @@
 
     $data = json_decode($_POST['contact']);
     $basket = json_decode($_POST['basket']);
+    $promocode = json_decode($_POST['promocode']);
+    $sale = $_POST['sale'];
 
     $number = rand(10000, 99999);
     $todey = date('H:i');
@@ -38,15 +40,47 @@
         $message .= "<tr style='border-bottom: 1px solid grey;'><td><p style='margin: 15px 0 5px; font-weight: bold;'>$title</p><p style='margin: 0 0 15px; font-size: 0.8em; color: #878787;'>$struct</p></td><td>$item->count</td><td>$price &#8381;</td></tr>";
     }
 
-    $message .= "</tbody></table><div style='padding: 25px 0 0; font-size: 1.2em; text-align: right;'>Итого: <span style='font-weight: bold;'>$total &#8381;</span></div></div></tbody>";
+    $message .= "</tbody></table><div style='padding: 25px 0 0; font-size: 1.2em; text-align: right;'>Итого: <span style='font-weight: bold;'>$total &#8381;</span></div>";
+    $message .= $promocode?"<div style='padding: 25px 0 0; font-size: 1.2em; text-align: right;'>Промокод: <span style='font-weight: bold;'>$promocode->promocode </span></div>":"";
+    $message .= $promocode?"<div style='padding: 25px 0 0; font-size: 1.2em; text-align: right;'>Всего к оплате: <span style='font-weight: bold;'>$sale &#8381;</span></div>":"";
+    $message .= "</div>";
 
-    $to = 'epizza.su@yandex.ru';
+    $to = 'epizza.su@yandex.ru, epizza.su@gmail.com';
     $subject = 'Новый заказ';
 
     $headers  = "Content-type: text/html; charset=utf-8\r\n";
     $headers .= "From: Ёpizza@site.ru"; 
 
     mail($to, $subject, $message, $headers);
+
+    //отправка в телеграмм
+    define('TOKEN', '1073645623:AAFPziWn0U6IanJFq6N42lDjkJogQXKkT_8');
+    $idArray = ['536467428', '1052293732', '1225791542'];
+
+    foreach($idArray as $id){
+        $text = "Новая заявка номер: " .$number;
+        message_to_telegram($text, $id);
+    }
+
+    function message_to_telegram($text, $id_tel)
+    {
+        $ch = curl_init();
+        curl_setopt_array(
+            $ch,
+            array(
+                CURLOPT_URL => 'https://api.telegram.org/bot' .TOKEN. '/sendMessage',
+                CURLOPT_POST => TRUE,
+                CURLOPT_RETURNTRANSFER => TRUE,
+                CURLOPT_TIMEOUT => 10,
+                CURLOPT_POSTFIELDS => array(
+                    'chat_id' => $id_tel,
+                    'text' => $text,
+                ),
+            )
+        );
+        curl_exec($ch);
+        curl_close($ch);
+    }
 
     echo json_encode($number);
 ?>

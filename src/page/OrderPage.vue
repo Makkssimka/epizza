@@ -15,7 +15,8 @@ import LayoutMobile from "../components/LoyoutHeaderMobileComponent";
 
 export default {
     created: function(){
-        document.title = "Форма доставки | Ёpizza - доставка пиццы в Волжском"
+        document.title = "Форма доставки | Ёpizza - доставка пиццы в Волжском";
+        document.querySelector("meta[name='description']").setAttribute('content', "Оформление адреса доставки пиццы");
 
         let preloader = document.querySelector('.preloader-wrapper');
         setTimeout(() => {

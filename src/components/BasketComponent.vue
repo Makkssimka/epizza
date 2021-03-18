@@ -11,7 +11,11 @@
             <div class="scroll-bar">
                 <ul>
                     <li v-for="(item, index) in basket" :key="index">
-                        <div class="image-baket">
+                        <div v-if="Array.isArray(item.product.image)" class="image-basket-array">
+                            <div class="image-basket-item-left" :style="{'background-image': 'url('+item.product.image[0]+')'}"></div>
+                            <div class="image-basket-item-right" :style="{'background-image': 'url('+item.product.image[1]+')'}"></div>
+                        </div>
+                        <div v-else class="image-baket">
                             <img :src="item.product.image" alt="">
                         </div>
                         <div class="title-basket">

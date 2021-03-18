@@ -11,7 +11,13 @@ export default new Vuex.Store({
 		basketMessage: 'Добавлено в корзину:',
 		pizzaActive: null,
 		contact: null,
-		url: "https://epizza.su/api/"
+		promocode: null,
+		url: "https://epizza.su/api/",
+		twoVis: false,
+		twoPizza: {
+			left: null,
+			right: null
+		}
 	},
 	getters: {
 		BASKET: state => {
@@ -38,6 +44,24 @@ export default new Vuex.Store({
 			return total;
 		},
 
+		PROMO_TOTAL: state => {
+			let total = 0;
+			state.basket.forEach(item => {
+				total += item.product.price*item.count 
+			});
+
+			if(state.promocode){
+				if(state.promocode.rules){
+					total = total - state.promocode.rulesSale;
+				}
+				else{
+					total = total - Math.floor(total*state.promocode.procent/100);
+				}
+			}
+
+			return total;
+		},
+
 		BASKET_MESSAGE: state => {
 			return state.basketMessage;
 		},
@@ -56,6 +80,17 @@ export default new Vuex.Store({
 
 		CONTACT: state => {
 			return state.contact;
+		},
+
+		PROMOCODE: state => {
+			return state.promocode;
+		},
+
+		TWO_VISBLE: state => {
+			return state.twoVis;
+		},
+		TWO_PIZZA: state => {
+			return state.twoPizza;
 		}
 	},
 	mutations: {
@@ -64,6 +99,10 @@ export default new Vuex.Store({
 		}
 	},
 	actions: {
+
+		SET_PROMOCODE: (context, promo) => {
+			context.state.promocode = promo;
+		},
 
 		GET_BASKET: context => {
 			context.state.basket = localStorage.getItem('basket')?JSON.parse(localStorage.getItem('basket')):[];
@@ -148,6 +187,24 @@ export default new Vuex.Store({
 
 		REMOVE_CONTACT: context => {
 			context.state.contact = null;
+		},
+
+		SET_TWO_VIS: (context, status) => {
+			context.state.twoVis = status;
+			context.state.twoPizza.left = null;
+			context.state.twoPizza.right = null;
+		},
+		SET_TWO_PIZZA: (context, pizza) => {
+			let twoPizza = context.state.twoPizza;
+			if(twoPizza.left){
+				twoPizza.right = pizza;
+			}
+			else{
+				twoPizza.left = pizza;
+			}
+		},
+		REMOVE_TWO_PIZZA: (context, position) => {
+			context.state.twoPizza[position] = null;
 		}
 
 	}

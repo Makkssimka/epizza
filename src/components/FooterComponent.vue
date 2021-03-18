@@ -54,12 +54,20 @@
                 <div class="footer-list-number">
                     <a href="tel:+79061718118">+7 906 17-18-118</a>
                     <p>Звонок бесплатный</p>
+                    <div class="time-footer">
+                        <div class="time-footer-time">
+                            с <span>10:00</span> до <span>22:30</span>
+                        </div>
+                        <div>режим работы</div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="footer-copyright">
             <div class="container">
-                2018-{{ todey }} &#169; <router-link to="/">Ёpizza</router-link>
+                <div>
+                    2018-{{ todey }} &#169; <router-link to="/">Ёpizza</router-link>
+                </div>
             </div>
         </div>
     </footer>

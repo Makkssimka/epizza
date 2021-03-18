@@ -54,6 +54,9 @@ export default {
             let data = new FormData();
             data.set('contact', JSON.stringify(this.contact));
             data.set('basket', JSON.stringify(this.basket));
+            data.set('promocode', JSON.stringify(this.promocode));
+            data.set('promocode', JSON.stringify(this.promocode));
+            data.set('sale', JSON.stringify(this.sale));
 
             axios.post(url, data)
                 .then((response) => {
@@ -74,6 +77,12 @@ export default {
         },
         basket: function(){
             return this.$store.getters.BASKET;
+        },
+        promocode: function(){
+            return this.$store.getters.PROMOCODE;
+        },
+        sale: function(){
+            return this.$store.getters.PROMO_TOTAL;
         }
     }
 }

@@ -26,7 +26,7 @@
             <div class="pizza-width-button">
                 <div class="pizza-size-chekbox">
                     <input type="radio" name="width" id="b" value="b" v-model="width">
-                    <label for="b">Толстое</label>
+                    <label for="b">Традиционное</label>
                 </div>
                 <div class="pizza-size-chekbox">
                     <input type="radio" name="width" id="t" value="t" v-model="width">
@@ -64,7 +64,7 @@ export default {
         },
         desc: function(){
             let sz = {'m':30, 'l':35};
-            let wt = {'b':'толстое', 't':'тонкое'};
+            let wt = {'b':'традиционное', 't':'тонкое'};
             return `${ sz[this.size] } см, ${ wt[this.width] } тесто, ${ this.pizza.weight[this.size+this.width] } гр.`
         },
         pizza: function(){
@@ -86,6 +86,7 @@ export default {
             setTimeout(() => {elem.scrollTop = 9999}, 100);
         }
     },
+    
     methods: {
         close: function(){
             this.$store.dispatch('UNSET_ACTIVE_PIZZA');
