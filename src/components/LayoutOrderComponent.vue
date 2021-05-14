@@ -16,7 +16,7 @@
                     <p>Ваш заказ можете забрать по адресу:</p>
                     <p class="adress">
                         <img src="/images/map-pin.svg">
-                        г.Волжский, ул. Оломоуцкая, д.30а, ТЦ "Галерея"
+                        г.Волжский, ул.Александрова, д.9а, ТЦ "Галерея"
                     </p>
                 </div>
                 <div v-else class="delivery-info input-wrapper">

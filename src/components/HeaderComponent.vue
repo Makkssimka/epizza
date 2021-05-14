@@ -9,7 +9,7 @@
             <div class="text-header">
                 <p>Доставка пиццы в <span>Волжском</span></p>
                 <div class="time-header">
-                    с <span>10:00</span> до <span>22:30</span>
+                    с <span>10:00</span> до <span>21:30</span>
                 </div>
             </div>
             <div class="number-header">

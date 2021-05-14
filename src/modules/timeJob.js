@@ -7,7 +7,7 @@ let job = false
 if(hour >= 10 && hour < 21){
     job = false;
 }
-else if(hour == 22 && minute <= 30){
+else if(hour == 21 && minute <= 30){
     job = false;
 }
 else{

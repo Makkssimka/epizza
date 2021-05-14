@@ -56,7 +56,7 @@
                     <p>Звонок бесплатный</p>
                     <div class="time-footer">
                         <div class="time-footer-time">
-                            с <span>10:00</span> до <span>22:30</span>
+                            с <span>10:00</span> до <span>21:30</span>
                         </div>
                         <div>режим работы</div>
                     </div>

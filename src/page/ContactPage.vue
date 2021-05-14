@@ -9,7 +9,7 @@
                 <div class="contact-wrapper">
                     <div class="contact-info">
                         <div class="contact-head">Наш адрес:</div>
-                        <div class="contact-desc">г.Волжский, ул.Оломоуцкая, д.30а, ТЦ "Галерея"</div>
+                        <div class="contact-desc">г.Волжский, ул.Александрова, д.9а, ТЦ "Галерея"</div>
                     </div>
                     <div class="contact-info">
                         <div class="contact-head">Наш телефон:</div>
@@ -52,7 +52,7 @@ export default {
     mounted: function(){
         let mapWrap = document.querySelector('.contact-map');
         let script = document.createElement('script');
-        script.setAttribute('src', 'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa3f42375c2e1ee168b15982f6e4abadb2ec261ea2a2e8f5ca5a8a1c628e55f1f&amp;width=100%&amp;height=400&amp;lang=ru_RU&amp;scroll=true');
+        script.setAttribute('src', 'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A18d9fe1996e804aa5e0181f29916f74bc74afa47a7547ccea06c0c0bc0f78613&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true');
         script.setAttribute('async', true);
         mapWrap.appendChild(script);
     },
