@@ -1042,6 +1042,7 @@ body
                 &:after
                     right: -53px
     .delivery-info
+        position: relative
         margin-bottom: 25px
         display: flex
         justify-content: space-between
@@ -1068,6 +1069,32 @@ body
             margin-top: 8px 
             img
                 margin-right: 10px
+    .delivery-minimal-alert
+        display: none
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        align-items: center
+        justify-content: center
+        flex-direction: column
+        text-align: center
+        background-color: rgba(255,255,255, 0.6)
+        h3
+            font-family: 'Nunito'
+            margin: 0 0 0.5rem 0
+        span
+            color: $red
+        p
+            color: $grey-simple
+        a
+            color: $black
+    .no-delivery
+        .delivery-minimal-alert
+            display: flex
+        input
+            opacity: 0
     .preorder-info
         margin-bottom: 25px
         display: flex

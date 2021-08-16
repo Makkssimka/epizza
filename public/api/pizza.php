@@ -267,7 +267,7 @@ foreach($pizzaArray as $key => $item) {
     if($key == 3){
         $pizza->add([
             "visibl" => true,
-            "title" => "Бесплатная доставка пиццы от 499 рублей"
+            "title" => "Бесплатная доставка пиццы от 599 рублей"
         ]);
     }
     $pizza->add($item->get());

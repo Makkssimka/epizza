@@ -19,12 +19,16 @@
                         г.Волжский, ул.Александрова, д.9а, ТЦ "Галерея"
                     </p>
                 </div>
-                <div v-else class="delivery-info input-wrapper">
+                <div v-else class="delivery-info input-wrapper" :class="{ 'no-delivery' : deliveryMinimal }">
                     <input name="street" class="input required" type="text" v-model="street" placeholder="Название улицы">
                     <input name="house" class="input required" type="text" v-model="house" placeholder="Дом">
                     <input name="apartment" class="input required" type="text" v-model="apartment" placeholder="Квартира">
                     <input name="door" class="input required" type="text" v-model="door" placeholder="Подъезд">
                     <input name="stage" class="input required" type="text" v-model="stage" placeholder="Этаж">
+                    <div class="delivery-minimal-alert">
+                        <h3><span>Минимальная сумма</span> заказа для доставки <span>599 руб.</span></h3>
+                        <p><router-link to="/">Дополните свой заказ</router-link> или выберите самовывоз</p>
+                    </div>
                 </div>
                 <div class="delivery-message input-wrapper">
                     <textarea name="message" class="textarea" rows="3" v-model="message" placeholder="Примечание к заказу"></textarea>
@@ -64,7 +68,7 @@
                 </div>
                 <div class="layout-button">
                     <router-link to="/basket" class="btn btn-grey">Вернуться к корзине</router-link>
-                    <a href="#" class="btn btn-select" @click.prevent="submitForm">Заказать</a>
+                    <a href="#" class="btn btn-select" :class="{ 'btn-inactive' : inactiveBtn }" @click.prevent="submitForm">Заказать</a>
                 </div>
             </div>
         </div>
@@ -96,6 +100,12 @@ export default {
     computed: {
         basket: function(){
             return this.$store.getters.BASKET;
+        },
+        deliveryMinimal: function(){
+            return this.$store.getters.BASKET_TOTAL < 599 ? true : false;
+        },
+        inactiveBtn: function(){
+            return this.deliveryMinimal && !this.noDelivery
         },
         dateOrder: function(){
             let date = new Date();
