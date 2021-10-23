@@ -89,6 +89,10 @@ export default {
         time: function(){
             let dt = new Date();
             return dt.getHours();
+        },
+        weekday: function(){
+            let dt = new Date();
+            return dt.getDay();
         }
     },
     methods: {
@@ -108,6 +112,12 @@ export default {
             if(!promObj){
                 this.$store.dispatch('SET_PROMOCODE', null);
                 this.promoMessage = "промокод не найден";
+                return false;
+            }
+
+            if(promObj.days && !promObj.days.rules.includes(this.weekday)){
+                this.$store.dispatch('SET_PROMOCODE', null);
+                this.promoMessage = promObj.days.message;
                 return false;
             }
             
