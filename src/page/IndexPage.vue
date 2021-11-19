@@ -56,6 +56,16 @@
                 </product-block>
             </div>
         </div>
+        <div v-if="desert.length" class="container" id="desert">
+          <div class="head-product">Десерты</div>
+          <div class="product-wrapper">
+            <product-block
+                v-for="item in desert"
+                :key="item.id"
+                :product="item">
+            </product-block>
+          </div>
+        </div>
         <div v-if="drink.length" class="container" id="drink">
             <div class="head-product">Напитки</div>
             <div class="product-wrapper">
@@ -94,6 +104,7 @@ export default {
             souse: [],
             zakuski: [],
             sault: [],
+            desert: [],
             drink: [],
             actions: null
         }
@@ -107,6 +118,7 @@ export default {
             this.souse = response.data.souse;
             this.zakuski = response.data.zakuski;
             this.sault = response.data.sault;
+            this.desert = response.data.desert;
             this.drink = response.data.drink;
         });
 
