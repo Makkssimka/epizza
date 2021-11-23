@@ -9,6 +9,7 @@
                 <li><a href="#souse" @click.prevent="scrollAnkhor">Соусы</a></li>
                 <li><a href="#zakuski" @click.prevent="scrollAnkhor">Закуски</a></li>
                 <li><a href="#sault" @click.prevent="scrollAnkhor">Салаты</a></li>
+                <li><a href="#desert" @click.prevent="scrollAnkhor">Десерты</a></li>
                 <li><a href="#drink" @click.prevent="scrollAnkhor">Напитки</a></li>
                 <li><router-link to="/action">Акции</router-link></li>
             </ul>
