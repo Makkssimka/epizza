@@ -51,7 +51,10 @@ export default new Vuex.Store({
 			});
 
 			if(state.promocode){
-				if(state.promocode.rules){
+				if (state.promocode.rulesPrice) {
+					total = state.promocode.rulesPrice;
+				}
+				else if(state.promocode.rulesSale){
 					total = total - state.promocode.rulesSale;
 				}
 				else{

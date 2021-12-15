@@ -115,18 +115,35 @@ export default {
                 return false;
             }
 
+            // ограничение по дням недели
             if(promObj.days && !promObj.days.rules.includes(this.weekday)){
                 this.$store.dispatch('SET_PROMOCODE', null);
                 this.promoMessage = promObj.days.message;
                 return false;
             }
-            
+
+            // ограничение по времени
             if(this.time < promObj.time.from || this.time > promObj.time.to){
                 this.$store.dispatch('SET_PROMOCODE', null);
                 this.promoMessage = `промокод действует с ${promObj.time.from}:00 до ${promObj.time.to}:00`;
                 return false;
             }
 
+            // ограничение по количеству
+            if (promObj.count) {
+                let counter = 0;
+                this.basket.forEach(element => {
+                  counter += element.count;
+                });
+
+                if (promObj.count != counter) {
+                    this.$store.dispatch('SET_PROMOCODE', null);
+                    this.promoMessage = `промокод действует при покупке ${promObj.count} питц`;
+                    return false;
+                }
+            }
+
+            // ограничение по правилу
             if(promObj.rules){
                 let ids = '';
                 this.basket.forEach(element => {
