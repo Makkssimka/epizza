@@ -138,7 +138,7 @@ export default {
 
                 if (promObj.count != counter) {
                     this.$store.dispatch('SET_PROMOCODE', null);
-                    this.promoMessage = `промокод действует при покупке ${promObj.count} питц`;
+                    this.promoMessage = `промокод действует при покупке ${promObj.count} пицц`;
                     return false;
                 }
             }
