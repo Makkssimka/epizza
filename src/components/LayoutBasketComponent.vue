@@ -143,6 +143,25 @@ export default {
                 }
             }
 
+            // исключенные пиццы
+            if(promObj.exclude) {
+                let isExclude = false;
+                this.basket.forEach(element => {
+                    const id = Number.parseInt(element.product.id);
+
+                    if (promObj.exclude.includes(id)) {
+                        isExclude = true;
+                        return false;
+                    }
+                });
+
+                if (isExclude) {
+                    this.$store.dispatch('SET_PROMOCODE', null);
+                    this.promoMessage = "не выполнены все условия промокода";
+                    return false;
+                }
+            }
+
             // ограничение по правилу
             if(promObj.rules){
                 let ids = '';
