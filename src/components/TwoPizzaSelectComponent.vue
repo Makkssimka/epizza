@@ -51,11 +51,7 @@
                 </div>
                 <div class="two-pizza-select-size">
                     <div class="pizza-size-button">
-                        <div class="pizza-size-chekbox">
-                            <input type="radio" name="sizeTwo" id="m" value="m" v-model="sizeTwo">
-                            <label for="m">Средняя</label>
-                        </div>
-                        <div class="pizza-size-chekbox">
+                        <div class="pizza-size-chekbox pizza-size-chekbox-one">
                             <input type="radio" name="sizeTwo" id="l" value="l" v-model="sizeTwo">
                             <label for="l">Большая</label>
                         </div>
@@ -87,7 +83,7 @@
 export default {
     data: function(){
         return {
-            sizeTwo: "m",
+            sizeTwo: "l",
             widthTwo: "b",
             open: false
         }
