@@ -14,11 +14,11 @@
                 {{ pizza.structure.join(', ') }}
             </div>
             <div class="pizza-size-button">
-                <div class="pizza-size-chekbox">
+                <div class="pizza-size-chekbox" v-if="pizza && (pizza.price.mb || pizza.price.mt)">
                     <input type="radio" name="size" id="m" value="m" v-model="size">
                     <label for="m">Средняя</label>
                 </div>
-                <div class="pizza-size-chekbox">
+                <div class="pizza-size-chekbox" v-if="pizza && (pizza.price.lb || pizza.price.lt)">
                     <input type="radio" name="size" id="l" value="l" v-model="size">
                     <label for="l">Большая</label>
                 </div>
@@ -45,7 +45,6 @@
 export default {
     data: function(){
         return{
-            size: 'm',
             width: 'b'
         }
     },
@@ -68,7 +67,11 @@ export default {
             return `${ sz[this.size] } см, ${ wt[this.width] } тесто, ${ this.pizza.weight[this.size+this.width] } гр.`
         },
         pizza: function(){
-            return this.$store.getters.PIZZA_ACTIVE;
+            const pizza = this.$store.getters.PIZZA_ACTIVE;
+            return pizza;
+        },
+        size: function() {
+            return this.pizza.size && (this.pizza.size.mb || this.pizza.size.mt) ? 'm' : 'l';
         },
         price: function(){
             return this.pizza.price[this.size+this.width];

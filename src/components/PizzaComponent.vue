@@ -15,10 +15,10 @@
         </a>
         <div class="desc-product">
             <p class="title-product">{{ pizza.title }}</p>
-            <p class="structure-product">{{ pizza.weight.mb }} гр, {{ pizza.structure.join(', ') }}</p>
+            <p class="structure-product">{{ pizza.weight.mb ? pizza.weight.mb : pizza.weight.lb }} гр, {{ pizza.structure.join(', ') }}</p>
         </div>
         <div class="price-product-wrapper">
-            <div class="price-broduct">от {{ pizza.price.mb }} &#8381;</div>
+            <div class="price-broduct">от {{ pizza.price.mb ? pizza.price.mb : pizza.price.lb }} &#8381;</div>
             <a href="#" v-if="isJob" class="btn btn-product btn-inactive">Закрыто</a>
             <a href="#" v-else-if="isPizza" class="btn btn-product" @click.prevent="removeTwoPizza(pizza.id)">Убрать</a>
             <a href="#" v-else-if="twoVis" class="btn btn-product" @click.prevent="addTwoPizza(pizza)">Добавить</a>
