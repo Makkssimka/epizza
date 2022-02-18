@@ -45,6 +45,7 @@
 export default {
     data: function(){
         return{
+            size: 'm',
             width: 'b'
         }
     },
@@ -67,11 +68,7 @@ export default {
             return `${ sz[this.size] } см, ${ wt[this.width] } тесто, ${ this.pizza.weight[this.size+this.width] } гр.`
         },
         pizza: function(){
-            const pizza = this.$store.getters.PIZZA_ACTIVE;
-            return pizza;
-        },
-        size: function() {
-            return this.pizza.size && (this.pizza.size.mb || this.pizza.size.mt) ? 'm' : 'l';
+            return this.$store.getters.PIZZA_ACTIVE;
         },
         price: function(){
             return this.pizza.price[this.size+this.width];
@@ -79,6 +76,8 @@ export default {
     },
     watch: {
         pizza: function(value){
+            this.size = (value && value.price.mb) ? 'm' : 'l';
+
             if(value){
                 document.body.style.overflow = 'hidden';
             }

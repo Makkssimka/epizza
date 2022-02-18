@@ -13,6 +13,8 @@ export default new Vuex.Store({
 		contact: null,
 		promocode: null,
 		url: "https://epizza.su/api/",
+		apiUrl: 'http://127.0.0.1:8000/api/',
+		apiKey: '16|dzPTNsNoqvfic0g6jYsOGW3TsVcC2wewEk1z10Sg',
 		twoVis: false,
 		twoPizza: {
 			left: null,
@@ -26,6 +28,14 @@ export default new Vuex.Store({
 
 		URL: state => {
 			return state.url;
+		},
+
+		API_URL: state => {
+			return state.apiUrl;
+		},
+
+		API_KEY: state => {
+			return state.apiKey;
 		},
 
 		BASKET_LEN: state => {
