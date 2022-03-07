@@ -46,7 +46,7 @@ export default {
             orderNumber: null
         }
     },
-    mounted: function(){
+    mounted: async function(){
 
         if(this.contact && this.basket){
 
@@ -58,6 +58,10 @@ export default {
             data.set('promocode', JSON.stringify(this.promocode));
             data.set('sale', JSON.stringify(this.sale));
 
+            const response = await this.sendOrderToDashboard();
+
+            data.set('number', response.data.id);
+
             axios.post(url, data)
                 .then((response) => {
                     setTimeout( () => {
@@ -66,7 +70,6 @@ export default {
                         this.subMessage = "Ваш заказ принят. Приятного аппетита";
                         this.orderNumber = response.data;
                         this.$store.dispatch('CLEAR_BASKET');
-                        //this.sendOrderToDashboard();
                     }, 1000)
                 });
         }
@@ -94,13 +97,12 @@ export default {
             const total = this.$store.getters.PROMO_TOTAL;
             const promoCode = this.$store.getters.PROMOCODE;
             const apiUrl = this.$store.getters.API_URL;
-            const apiKey = this.$store.getters.API_KEY;
 
             let cart = [];
             basket.forEach(item => {
                 cart.push({
                     type: item.product.type,
-                    size: item.product.id.replace(/\d/g, ''),
+                    size: item.product.id.toString().replace(/\d/g, ''),
                     title: item.product.title,
                     price: item.product.price,
                     count: item.count
@@ -122,7 +124,8 @@ export default {
                 address: {
                     name: contact.name,
                     telephone: contact.tel,
-                    fullAddress: contact.street ? `${contact.street} д ${contact.house}, кв ${contact.apartment}` : '',
+                    fullAddress: contact.street ? `${contact.street} д ${contact.house}` : '',
+                    apartment: contact.apartment ?? null,
                     entrance: contact.door ?? null,
                     stage: contact.stage ?? null,
                     preOrder: (contact.date_order && contact.time_order) ? 1 : 0,
@@ -132,7 +135,7 @@ export default {
                 price: {
                     regular: regular,
                     total: total,
-                    promoCode: promoCode
+                    promoCode: promoCode ? promoCode.promocode : ''
                 },
                 payToCart: (!contact.calculation && !contact.pay) ? 1 : 0,
                 payFull: contact.calculation ? 1 : 0,
@@ -140,16 +143,7 @@ export default {
                 comment: contact.message ? contact.message : ''
             }
 
-            const config = {
-                headers: { Authorization: `Bearer ${apiKey}` }
-            };
-
-            axios.post(apiUrl + 'order', data, config)
-                // .then(response => {
-                //     setTimeout( () => {
-                //         console.log(response.data);
-                //     }, 1000)
-                // })
+            return axios.post(apiUrl + 'order', data);
 
         }
     }

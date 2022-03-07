@@ -139,7 +139,7 @@ export default {
             product.type = 'pizza';
 
             this.$store.dispatch('ADD_BASKET', product);
-            this.sizeTwo = "m";
+            this.sizeTwo = "l";
             this.widthTwo = "b";
             this.closeTwoPizza();
         }
