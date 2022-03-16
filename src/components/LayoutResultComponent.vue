@@ -137,8 +137,8 @@ export default {
                     total: total,
                     promoCode: promoCode ? promoCode.promocode : ''
                 },
-                payToCart: (!contact.calculation && !contact.pay) ? 1 : 0,
-                payFull: contact.calculation ? 1 : 0,
+                payToCart: (!contact.сalculation && !contact.pay) ? 1 : 0,
+                payFull: contact.сalculation ? 1 : 0,
                 payChange: contact.pay ? contact.pay : null,
                 comment: contact.message ? contact.message : ''
             }
