@@ -5,8 +5,8 @@
             <div class="pizza-size-image">
                 <div class="middle-radius radius"></div>
                 <div class="large-radius radius"></div>
-                <img v-if="width == 't'" class="pizza" :class="pizzaClass" :src="pizza.images.thin"/>
-                <img v-else class="pizza" :class="pizzaClass" :src="pizza.images.bold"/>
+                <img v-if="width == 't'" class="pizza" :class="pizzaClass" :src="pizza.image_thin"/>
+                <img v-else class="pizza" :class="pizzaClass" :src="pizza.image"/>
             </div>
             <div class="pizza-select-name">{{ pizza.title }}</div>
             <div class="pizza-select-subname">{{ desc }}</div>
@@ -101,7 +101,7 @@ export default {
             product.title = pizza.title;
             product.price = this.price;
             product.structure = this.desc;
-            product.image = pizza.images[this.width == 'b'?'bold':'thin'];
+            product.image = this.width === 'b' ? pizza.image : pizza.image_thin;
             product.type = 'pizza';
 
             this.$store.dispatch('ADD_BASKET', product);

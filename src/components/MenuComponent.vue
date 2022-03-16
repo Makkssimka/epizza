@@ -6,11 +6,11 @@
                     <img src="/images/epizza-logo-simple.svg" alt="">
                 </router-link></li>
                 <li><a href="#pizza" @click="scrollAnkhor">Пицца</a></li>
-                <li><a href="#souse" @click.prevent="scrollAnkhor">Соусы</a></li>
-                <li><a href="#zakuski" @click.prevent="scrollAnkhor">Закуски</a></li>
-                <li><a href="#sault" @click.prevent="scrollAnkhor">Салаты</a></li>
-                <li><a href="#desert" @click.prevent="scrollAnkhor">Десерты</a></li>
-                <li><a href="#drink" @click.prevent="scrollAnkhor">Напитки</a></li>
+                <li v-for="item in menuItems" :key="item.id">
+                    <a :href="'#' + item.anchor" @click.prevent="scrollAnkhor">
+                        {{ item.title }}
+                    </a>
+                </li>
                 <li><router-link to="/action">Акции</router-link></li>
             </ul>
             <ul class="list-menu" v-else>
@@ -30,6 +30,7 @@
 <script>
 import scrollTo from "scroll-to-element";
 import Basket from "../components/BasketComponent";
+import axios from "axios";
 
 export default {
     components: {
@@ -37,7 +38,8 @@ export default {
     },
     data: function(){
         return {
-            isVisible: false
+            isVisible: false,
+            menuItems: [],
         }
     },
     mounted: function(){
@@ -45,6 +47,19 @@ export default {
             let scroll = window.pageYOffset || document.documentElement.scrollTop;
             this.isVisible = (scroll > 75)?true:false;
         };
+
+        let urlProduct = this.$store.getters.API_URL+"product-list";
+        axios.get(urlProduct).then((response) => {
+            const categories = response.data;
+
+            categories.forEach(category => {
+                this.menuItems.push({
+                    id: category.id,
+                    title: category.name,
+                    anchor: category.slug
+                });
+            });
+        });
     },
     computed: {
         isIndex: function(){

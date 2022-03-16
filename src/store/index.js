@@ -13,7 +13,7 @@ export default new Vuex.Store({
 		contact: null,
 		promocode: null,
 		url: "https://epizza.su/api/",
-		apiUrl: 'http://127.0.0.1:8000/api/', //'https://rest.epizza.su/api/'
+		apiUrl: 'https://rest.epizza.su/api/', //'http://127.0.0.1:8000/api/'
 		twoVis: false,
 		twoPizza: {
 			left: null,

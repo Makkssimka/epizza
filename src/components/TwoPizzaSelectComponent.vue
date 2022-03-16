@@ -135,7 +135,10 @@ export default {
             product.title = this.twoPizza.left.title + " / " + this.twoPizza.right.title;
             product.price = this.price;
             product.structure = `${sz[this.sizeTwo]} см, ${wt[this.widthTwo]} тесто, ${ this.twoPizza.left.weight[this.sizeTwo+this.widthTwo]/2 + this.twoPizza.right.weight[this.sizeTwo+this.widthTwo]/2} гр.`
-            product.image = [this.twoPizza.left.images[this.widthTwo == 'b'?'bold':'thin'], this.twoPizza.right.images[this.widthTwo == 'b'?'bold':'thin']];
+            product.image = [
+                this.widthTwo === 'b' ? this.twoPizza.left.image : this.twoPizza.left.image_thin,
+                this.widthTwo === 'b' ? this.twoPizza.right.image : this.twoPizza.right.image_thin,
+            ];
             product.type = 'pizza';
 
             this.$store.dispatch('ADD_BASKET', product);

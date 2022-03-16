@@ -26,51 +26,11 @@
                 </pizza-block>
             </div>
         </div>
-        <div v-if="souse.length" class="container" id="souse">
-            <div class="head-product">Соусы</div>
+        <div class="container" v-for="category in categories" :key="category.id" :id="category.slug">
+            <div class="head-product">{{ category.name }}</div>
             <div class="product-wrapper">
                 <product-block 
-                    v-for="item in souse" 
-                    :key="item.id"
-                    :product="item">
-                </product-block>
-            </div>
-        </div>
-        <div v-if="zakuski.length" class="container" id="zakuski">
-            <div class="head-product">Закуски</div>
-            <div class="product-wrapper">
-                <product-block 
-                    v-for="item in zakuski" 
-                    :key="item.id"
-                    :product="item">
-                </product-block>
-            </div>
-        </div>
-        <div v-if="sault.length" class="container" id="sault">
-            <div class="head-product">Салаты</div>
-            <div class="product-wrapper">
-                <product-block 
-                    v-for="item in sault" 
-                    :key="item.id"
-                    :product="item">
-                </product-block>
-            </div>
-        </div>
-        <div v-if="desert.length" class="container" id="desert">
-          <div class="head-product">Десерты</div>
-          <div class="product-wrapper">
-            <product-block
-                v-for="item in desert"
-                :key="item.id"
-                :product="item">
-            </product-block>
-          </div>
-        </div>
-        <div v-if="drink.length" class="container" id="drink">
-            <div class="head-product">Напитки</div>
-            <div class="product-wrapper">
-                <product-block 
-                    v-for="item in drink" 
+                    v-for="item in category.products"
                     :key="item.id"
                     :product="item">
                 </product-block>
@@ -101,11 +61,7 @@ export default {
     data: function(){
         return {
             pizza: [],
-            souse: [],
-            zakuski: [],
-            sault: [],
-            desert: [],
-            drink: [],
+            categories: [],
             actions: null
         }
     },
@@ -113,16 +69,12 @@ export default {
         document.title = "Ёpizza - доставка пиццы в Волжском";
         document.querySelector("meta[name='description']").setAttribute('content', "Вкусная пицца с быстрой бесплатной доставкой домой и в офис в Волжском.");
 
-        let urlProduct = this.$store.getters.URL+"product";
+        let urlProduct = this.$store.getters.API_URL+"product-list";
         axios.get(urlProduct).then((response) => {
-            this.souse = response.data.souse;
-            this.zakuski = response.data.zakuski;
-            this.sault = response.data.sault;
-            this.desert = response.data.desert;
-            this.drink = response.data.drink;
+            this.categories = response.data;
         });
 
-        let urlPizza = this.$store.getters.URL+"pizza";
+        let urlPizza = this.$store.getters.API_URL+"pizza-list";
         axios.get(urlPizza).then((response) => {
             this.pizza = response.data;
             let preloader = document.querySelector('.preloader-wrapper');
