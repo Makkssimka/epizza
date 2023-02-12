@@ -9,13 +9,23 @@
             <div class="text-header">
                 <p>Доставка пиццы в <span>Волжском</span></p>
                 <div class="time-header">
-                    с <span>10:00</span> до <span>21:30</span>
+                    с <span>{{ settings['job-from'] }}</span> до <span>{{ settings['job-to'] }}</span>
                 </div>
             </div>
             <div class="number-header">
-                <a href="tel:+79061718118">+7 906 17-18-118</a>
+                <a :href="'tel:' + settings.telephones">{{ settings.telephones }}</a>
                 <p>Звонок бесплатный</p>
             </div>
         </div>
     </header>
 </template>
+
+<script>
+export default {
+    computed: {
+        settings: function() {
+            return this.$store.getters.SETTINGS;
+        }
+    }
+}
+</script>

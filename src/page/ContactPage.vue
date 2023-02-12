@@ -9,15 +9,15 @@
                 <div class="contact-wrapper">
                     <div class="contact-info">
                         <div class="contact-head">Наш адрес:</div>
-                        <div class="contact-desc">г.Волжский, ул.Александрова, д.9а, ТЦ "Галерея"</div>
+                        <div class="contact-desc">{{ settings.addresses }}</div>
                     </div>
                     <div class="contact-info">
                         <div class="contact-head">Наш телефон:</div>
-                        <div class="contact-desc"><a href="tel:+79061718118">+7 906 17-18-118</a></div>
+                        <div class="contact-desc"><a :href="'tel:' + settings.telephones">{{ settings.telephones }}</a></div>
                     </div>
                     <div class="contact-info">
                         <div class="contact-head">Наш e-mail:</div>
-                        <div class="contact-desc"><a href="mailto:epizza.su@yandex.ru">epizza.su@yandex.ru</a></div>
+                        <div class="contact-desc"><a :href="'mailto:' + settings.emails">{{ settings.emails }}</a></div>
                     </div>
                 </div>
                 <div class="contact-map"></div>
@@ -69,6 +69,11 @@ export default {
         "header-component": Header,
         "menu-component": Menu,
         "footer-component": Footer
+    },
+    computed: {
+        settings: function (){
+            return this.$store.getters.SETTINGS;
+        }
     }
 }
 </script>

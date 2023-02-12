@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from "axios";
 
 Vue.use(Vuex)
 
@@ -18,7 +19,8 @@ export default new Vuex.Store({
 		twoPizza: {
 			left: null,
 			right: null
-		}
+		},
+		settings: {}
 	},
 	getters: {
 		BASKET: state => {
@@ -99,11 +101,17 @@ export default new Vuex.Store({
 		},
 		TWO_PIZZA: state => {
 			return state.twoPizza;
+		},
+		SETTINGS: state => {
+			return state.settings;
 		}
 	},
 	mutations: {
 		UP_BASKET: state => {
 			localStorage.setItem('basket', JSON.stringify(state.basket));
+		},
+		SET_SETTINGS: (state, settings) => {
+			state.settings = settings;
 		}
 	},
 	actions: {
@@ -213,6 +221,12 @@ export default new Vuex.Store({
 		},
 		REMOVE_TWO_PIZZA: (context, position) => {
 			context.state.twoPizza[position] = null;
+		},
+		LOAD_SETTINGS: ({commit, state}) => {
+			axios.get(state.apiUrl + 'settings-list')
+				.then(response => {
+					commit('SET_SETTINGS', response.data);
+				})
 		}
 
 	}

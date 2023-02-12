@@ -1,7 +1,7 @@
 <template>
     <div class="layout-footer">
         <div class="container layout-footer-number">
-            <a href="tel:+79061718118">+7 906 17-18-118</a>
+            <a :href="'tel:' + settings.telephones">{{ settings.telephones }}</a>
             <p>Звонок бесплатный</p>
         </div>
         <div class="container layout-footer-copyright">
@@ -15,6 +15,9 @@ export default {
     computed: {
         todey: function(){
             return new Date().getFullYear();
+        },
+        settings: function (){
+            return this.$store.getters.SETTINGS;
         }
     }
 }

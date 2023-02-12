@@ -7,11 +7,6 @@
                 </div>
                 <ul class="list-social">
                     <li>
-                        <a href="https://www.instagram.com" target="_blank">
-                            <img src="/images/instagram.svg">
-                        </a>
-                    </li>
-                    <li>
                         <a :href="vkShare" target="_blank">
                             <img src="/images/vkontakte.svg">
                         </a>
@@ -52,11 +47,11 @@
                     </ul>
                 </div>
                 <div class="footer-list-number">
-                    <a href="tel:+79061718118">+7 906 17-18-118</a>
+                    <a :href="'tel:' + settings.telephones">{{ settings.telephones }}</a>
                     <p>Звонок бесплатный</p>
                     <div class="time-footer">
                         <div class="time-footer-time">
-                            с <span>10:00</span> до <span>21:30</span>
+                            с <span>{{ settings['job-from'] }}</span> до <span>{{ settings['job-to'] }}</span>
                         </div>
                         <div>режим работы</div>
                     </div>
@@ -99,6 +94,9 @@ export default {
         },
         isIndex: function(){
             return (this.$route.path == '/')?true:false;
+        },
+        settings: function (){
+            return this.$store.getters.SETTINGS;
         }
     }
 }

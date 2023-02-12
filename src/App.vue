@@ -12,6 +12,7 @@
 export default {
   mounted: function(){
     this.$store.dispatch('GET_BASKET');
+    this.$store.dispatch('LOAD_SETTINGS');
   }
 }
 </script>

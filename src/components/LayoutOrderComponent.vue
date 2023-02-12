@@ -16,7 +16,7 @@
                     <p>Ваш заказ можете забрать по адресу:</p>
                     <p class="adress">
                         <img src="/images/map-pin.svg">
-                        г.Волжский, ул.Александрова, д.9а, ТЦ "Галерея"
+                        {{ settings.addresses }}
                     </p>
                 </div>
                 <div v-else class="delivery-info input-wrapper" :class="{ 'no-delivery' : deliveryMinimal }">
@@ -26,7 +26,7 @@
                     <input name="door" class="input required" type="text" v-model="door" placeholder="Подъезд">
                     <input name="stage" class="input required" type="text" v-model="stage" placeholder="Этаж">
                     <div class="delivery-minimal-alert">
-                        <h3><span>Минимальная сумма</span> заказа для доставки <span>599 руб.</span></h3>
+                        <h3><span>Минимальная сумма</span> заказа для доставки <span>{{ settings['delivery-price'] }} руб.</span></h3>
                         <p><router-link to="/">Дополните свой заказ</router-link> или выберите самовывоз</p>
                     </div>
                 </div>
@@ -102,7 +102,7 @@ export default {
             return this.$store.getters.BASKET;
         },
         deliveryMinimal: function(){
-            return this.$store.getters.BASKET_TOTAL < 599 ? true : false;
+            return this.$store.getters.BASKET_TOTAL < this.settings['delivery-price'];
         },
         inactiveBtn: function(){
             return this.deliveryMinimal && !this.noDelivery
@@ -118,6 +118,9 @@ export default {
             let hours =  (date.getHours() + 1).toString().length == 1?`0${date.getHours()+1}`:date.getHours()+1;
             let minutes = date.getMinutes().toString().length == 1?`0${date.getMinutes()}`:date.getMinutes();
             return `${hours}${minutes}`;
+        },
+        settings: function () {
+            return this.$store.getters.SETTINGS;
         }
     },
     methods: {
